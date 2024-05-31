@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ShowAlertAssistance } from '../../assets/assistances/AlertAssistance';
 import LoginImage from "../../assets/login.jpg"
+import logo from "../../assets/LogoVenture.png";
 
 // Componente para la sección de citas
 function QuoteSection() {
@@ -63,12 +64,12 @@ function LoginForm() {
       {/* Encabezado del formulario */}
       <header className="flex justify-between gap-0 text-lg leading-6 text-center ">
         <Link to="/">
-          <img
-            loading="lazy"
-            src="src/assets/Logo2.png"
-            className="shrink-0 w-4 border-0 aspect-square"
-            alt="logo"
-          />
+        <img
+        src={logo}
+        alt="login"
+        className="shrink-0 w-4 border-0 aspect-square mr-2 mt-1"
+      />
+          
         </Link>
         <div>Venture</div>
       </header>
