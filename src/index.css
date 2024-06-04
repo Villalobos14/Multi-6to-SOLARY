@@ -9,5 +9,6 @@
   color-scheme: dark;
 }
 body {
-  background-color: black; /* Establece el color de fondo de todo el cuerpo del documento a negro */
+  background: linear-gradient(to right, #090014, #220434, #000000); /* Cambia los colores según tus preferencias */
 }
+

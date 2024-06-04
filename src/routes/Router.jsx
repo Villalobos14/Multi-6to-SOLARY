@@ -14,12 +14,12 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/calculadora" element={<Calculadora/>} />
-        <Route path="/landing" element={<Landing/>} />
+        <Route path="/Home" element={<Home/>} />
         
       </Routes>
     </BrowserRouter>
