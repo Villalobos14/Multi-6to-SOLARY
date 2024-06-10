@@ -60,7 +60,7 @@ function LoginForm() {
   };
 //colores del pagina
   return (
-    <form className="flex flex-col items-center justify-center px-10 py-6 w-full text-xs bg-gradient-to-tl from-yellow-950 from-10% via-red-950 via-30% to-black to-100% text-white sm:px-5" onSubmit={handleSubmit}>
+    <form className="flex flex-col items-center justify-center px-10 py-6 w-full text-xs bg-[#101010] text-white sm:px-5" onSubmit={handleSubmit}>
       {/* Encabezado del formulario */}
       <header className="flex justify-between gap-0 text-lg leading-6 text-center ">
         <Link to="/">
@@ -86,7 +86,7 @@ function LoginForm() {
           Email
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5 border border-gray-700"
           type="email"
           id="emailInput"
           placeholder="Enter your email"
@@ -98,7 +98,7 @@ function LoginForm() {
           Password
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5 border border-gray-700"
           type="password"
           id="passwordInput"
           placeholder="Enter your password"
@@ -106,7 +106,7 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* Checkbox de "Remember me" */}
-        <div className="flex items-center mt-5 ">
+        <div className="flex mt-5 justify-items-start">
           <input 
             type="checkbox"
             checked={remember}
