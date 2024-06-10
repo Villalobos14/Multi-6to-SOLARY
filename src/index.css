@@ -9,6 +9,7 @@
   color-scheme: dark;
 }
 body {
-  background: linear-gradient(to right, #090014, #220434, #000000); /* Cambia los colores según tus preferencias */
+  /* Utiliza linear-gradient con los colores y porcentajes */
+  background: linear-gradient(to bottom right, #000000 30%, #3b1e00 50%, #000000 100%);
 }
 

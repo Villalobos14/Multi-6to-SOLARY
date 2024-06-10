@@ -5,7 +5,7 @@ const HeroSection = () => {
     <div className="flex flex-col items-center mt-6 lg:mt-24">
       <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide">
         Solary Performance your 
-        <span className="bg-gradient-to-r from-purple-500 to-red-800 text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-yellow-500 to-red-800 text-transparent bg-clip-text">
           {" "}
           Statictics
         </span>
@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="flex justify-center my-10">
         <a
           href="#"
-          className="bg-gradient-to-r from-purple-500 to-purple-800 py-3 px-4 mx-3 rounded-md"
+          className="bg-gradient-to-r from-yellow-500 to-red-800 py-3 px-4 mx-3 rounded-md"
         >
           Start for free
         </a>
