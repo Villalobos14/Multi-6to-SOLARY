@@ -1,55 +1,45 @@
-import React from "react";
+import React from 'react';
+import { FaHome, FaChartBar, FaCog } from 'react-icons/fa';
 
-const Navbar = () => {
-  const navItems = ["first dscs", "Second wdwd", "third dwd", "fourth", "fivth dsdsd"];
+function Dashboard() {
   return (
-    <header className="flex gap-5 justify-between items-center self-stretch w-full max-md:flex-wrap max-md:max-w-full">
-      <h1 className="self-stretch text-2xl font-medium">Solary</h1>
-      <nav className="flex gap-5 self-stretch py-1 my-auto text-lg max-md:flex-wrap">
-        {navItems.map((item, index) => (
-          <a key={index} href="#" className="grow">
-            {item}
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-64 my-4 mx-4 text-white flex flex-col bg-white bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-xl">
+        <div className="p-6">
+          <h1 className="text-2xl font-semibold">Dashboard</h1>
+        </div>
+        <nav className="flex flex-col p-6 space-y-4">
+          <a href="#" className="flex items-center p-2 hover:bg-neutral-700 rounded">
+            <FaHome className="mr-3" /> Home
           </a>
-        ))}
-      </nav>
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/1888bcc1e8459e918fcfe749f0441b35e7cf37d0bc32ac10efb2d77453e0d63b?apiKey=3e2df49d66f0474aaecc98292f644ee5&"
-        alt="Serendale Logo"
-        className="shrink-0 self-stretch my-auto w-32 max-w-full aspect-[6.25]"
-      />
-    </header>
+          <a href="#" className="flex items-center p-2 hover:bg-neutral-700 rounded">
+            <FaChartBar className="mr-3" /> Estadistica
+          </a>
+          <a href="#" className="flex items-center p-2 hover:bg-neutral-700 rounded">
+            <FaCog className="mr-3" /> Probabilidad
+          </a>
+        </nav>
+      </div>
+      {/* Main content */}
+      <div className="flex-1 p-6 mx-6 my-4 bg-white bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-xl">
+        <div className="grid grid-cols-3 gap-6 mb-6">
+          <div className="bg-stone-900 p-6 rounded-3xl shadow-md h-[153px] w-[245px]"></div>
+          <div className="bg-stone-900 p-6 rounded-3xl shadow-md h-[153px] w-[245px]"></div>
+          <div className="bg-stone-900 p-6 rounded-3xl shadow-md h-[153px] w-[245px]"></div>
+        </div>
+        <div className="grid grid-cols-2 gap-6">
+          <div className="bg-stone-900 p-6 rounded-3xl shadow-md h-[195px]"></div>
+          <div className="bg-stone-900 p-6 rounded-3xl shadow-md">
+            <div className="grid grid-cols-2 gap-6 mt-10">
+              <div className="bg-stone-900 rounded-3xl shadow-md h-[157px]"></div>
+              <div className="bg-stone-900 rounded-3xl shadow-md h-[157px]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
-const MainContent = () => (
-  <main className="flex flex-col items-center w-full max-w-[1024px] max-md:max-w-full mt-10">
-    <section className="mt-24 text-6xl font-medium tracking-widest text-center max-md:mt-10 max-md:max-w-full max-md:text-4xl">
-      <h2 className="text-6xl font-medium tracking-widest max-md:text-4xl">the best way to keep it</h2>
-      <h2 className="text-6xl font-medium tracking-widest max-md:text-4xl">on eye.</h2>
-    </section>
-    <section className="mt-6 text-lg tracking-wider leading-8 text-center w-[723px] max-md:max-w-full">
-      <p>
-        Our technology performs fas and guarantees data security. Proof of Stake, its
-        consensus algorithm enables unlimited speeds make it happnd now and come to try it.
-      </p>
-    </section>
-    <section className="flex gap-3 mt-10 text-lg text-center">
-      <button className="justify-center px-8 py-2 bg-black border-2 border-white border-solid rounded-full max-md:px-5">
-        Get started
-      </button>
-      <button className="justify-center px-8 py-2whitespace-nowrap bg-black border-2 border-white border-solid rounded-full max-md:px-5">
-        Ecosystems
-      </button>
-    </section>
-  </main>
-);
-
-const MyComponent = () => (
-  <div className="min-h-screen flex flex-col items-center px-16 pt-12 pb-20 text-white bg-black max-md:px-5">
-    <Navbar />
-    <MainContent />
-  </div>
-);
-
-export default MyComponent;
+export default Dashboard;
