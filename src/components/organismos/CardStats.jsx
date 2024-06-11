@@ -245,205 +245,100 @@ import {
     {
       date: 'Sep 08',
       'ETF Shares Vital': 13028.8,
-      'Vitainvest Core': 8943.2,
-      'iShares Tech Growth': 13611.2,
+      'Vitainvest Core': 8943.4,
+      'iShares Tech Growth': 14230.9,
     },
     {
       date: 'Sep 09',
-      'ETF Shares Vital': 13412.4,
-      'Vitainvest Core': 9932.2,
-      'iShares Tech Growth': 12515.2,
+      'ETF Shares Vital': 12993.2,
+      'Vitainvest Core': 9534.4,
+      'iShares Tech Growth': 14678.1,
     },
     {
       date: 'Sep 10',
-      'ETF Shares Vital': 13649.0,
-      'Vitainvest Core': 10139.2,
-      'iShares Tech Growth': 11143.8,
+      'ETF Shares Vital': 13078.9,
+      'Vitainvest Core': 10134.1,
+      'iShares Tech Growth': 14534.2,
     },
     {
       date: 'Sep 11',
-      'ETF Shares Vital': 13748.5,
-      'Vitainvest Core': 10441.2,
-      'iShares Tech Growth': 8929.2,
+      'ETF Shares Vital': 13143.5,
+      'Vitainvest Core': 10435.2,
+      'iShares Tech Growth': 14632.3,
     },
     {
       date: 'Sep 12',
-      'ETF Shares Vital': 13148.1,
-      'Vitainvest Core': 10933.8,
-      'iShares Tech Growth': 8943.2,
+      'ETF Shares Vital': 13247.8,
+      'Vitainvest Core': 10923.4,
+      'iShares Tech Growth': 14823.9,
     },
     {
       date: 'Sep 13',
-      'ETF Shares Vital': 12839.6,
-      'Vitainvest Core': 11073.4,
-      'iShares Tech Growth': 7938.3,
+      'ETF Shares Vital': 13432.9,
+      'Vitainvest Core': 11034.5,
+      'iShares Tech Growth': 14834.3,
     },
     {
       date: 'Sep 14',
-      'ETF Shares Vital': 12428.2,
-      'Vitainvest Core': 11128.3,
-      'iShares Tech Growth': 7533.4,
+      'ETF Shares Vital': 13623.1,
+      'Vitainvest Core': 11234.2,
+      'iShares Tech Growth': 14859.1,
     },
     {
       date: 'Sep 15',
-      'ETF Shares Vital': 12012.8,
-      'Vitainvest Core': 11412.3,
-      'iShares Tech Growth': 7100.4,
+      'ETF Shares Vital': 13734.4,
+      'Vitainvest Core': 11423.3,
+      'iShares Tech Growth': 14943.5,
     },
     {
       date: 'Sep 16',
-      'ETF Shares Vital': 11801.3,
-      'Vitainvest Core': 10501.1,
-      'iShares Tech Growth': 6532.1,
+      'ETF Shares Vital': 13845.7,
+      'Vitainvest Core': 11534.1,
+      'iShares Tech Growth': 14978.3,
     },
     {
       date: 'Sep 17',
-      'ETF Shares Vital': 10102.9,
-      'Vitainvest Core': 8923.3,
-      'iShares Tech Growth': 4332.8,
+      'ETF Shares Vital': 13934.5,
+      'Vitainvest Core': 11634.8,
+      'iShares Tech Growth': 14989.4,
     },
     {
       date: 'Sep 18',
-      'ETF Shares Vital': 12132.5,
-      'Vitainvest Core': 10212.1,
-      'iShares Tech Growth': 7847.4,
+      'ETF Shares Vital': 14034.3,
+      'Vitainvest Core': 11723.4,
+      'iShares Tech Growth': 15012.3,
     },
     {
       date: 'Sep 19',
-      'ETF Shares Vital': 12901.1,
-      'Vitainvest Core': 10101.7,
-      'iShares Tech Growth': 7223.3,
+      'ETF Shares Vital': 14123.2,
+      'Vitainvest Core': 11834.5,
+      'iShares Tech Growth': 15123.1,
     },
     {
       date: 'Sep 20',
-      'ETF Shares Vital': 13132.6,
-      'Vitainvest Core': 12132.3,
-      'iShares Tech Growth': 6900.2,
-    },
-    {
-      date: 'Sep 21',
-      'ETF Shares Vital': 14132.2,
-      'Vitainvest Core': 13212.5,
-      'iShares Tech Growth': 5932.2,
-    },
-    {
-      date: 'Sep 22',
-      'ETF Shares Vital': 14245.8,
-      'Vitainvest Core': 12163.4,
-      'iShares Tech Growth': 5577.1,
-    },
-    {
-      date: 'Sep 23',
-      'ETF Shares Vital': 14328.3,
-      'Vitainvest Core': 10036.1,
-      'iShares Tech Growth': 5439.2,
-    },
-    {
-      date: 'Sep 24',
-      'ETF Shares Vital': 14949.9,
-      'Vitainvest Core': 8985.1,
-      'iShares Tech Growth': 4463.1,
-    },
-    {
-      date: 'Sep 25',
-      'ETF Shares Vital': 15967.5,
-      'Vitainvest Core': 9700.1,
-      'iShares Tech Growth': 4123.2,
-    },
-    {
-      date: 'Sep 26',
-      'ETF Shares Vital': 17349.3,
-      'Vitainvest Core': 10943.4,
-      'iShares Tech Growth': 3935.1,
+      'ETF Shares Vital': 14234.6,
+      'Vitainvest Core': 11934.6,
+      'iShares Tech Growth': 15234.2,
     },
   ];
-  
-  const summary = [
-    {
-      name: 'ETF Shares Vital',
-      value: '$21,349.36',
-      invested: '$19,698.65',
-      cashflow: '$14,033.74',
-      gain: '+$11,012.39',
-      realized: '+$177.48',
-      dividends: '+$490.97',
-      bgColor: 'bg-blue-500',
-      changeType: 'positive',
-    },
-    {
-      name: 'Vitainvest Core',
-      value: '$25,943.43',
-      invested: '$23,698.65',
-      cashflow: '$11,033.74',
-      gain: '+$3,012.39',
-      realized: '+$565.41',
-      dividends: '+$290.97',
-      bgColor: 'bg-violet-500',
-      changeType: 'positive',
-    },
-    {
-      name: 'iShares Tech Growth',
-      value: '$9,443.46',
-      invested: '$14,698.65',
-      cashflow: '$2,033.74',
-      gain: '-$5,012.39',
-      realized: '-$634.42',
-      dividends: '-$990.97',
-      bgColor: 'bg-fuchsia-500',
-      changeType: 'negative',
-    },
-  ];
-  
-  const valueFormatter = (number) =>
-    `$${Intl.NumberFormat('us').format(number).toString()}`;
   
   export default function Example() {
     return (
-      <>
-        <h3 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-          Portfolio performance
-        </h3>
-        <p className="mt-1 text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-          $32,227.40
-        </p>
-        <p className="mt-1 text-tremor-default font-medium">
-          <span className="text-emerald-700 dark:text-emerald-500">
-            +$430.90 (4.1%)
-          </span>{' '}
-          <span className="font-normal text-tremor-content dark:text-dark-tremor-content">
-            Past 24 hours
-          </span>
-        </p>
-        <LineChart
-          data={data}
-          index="date"
-          categories={[
-            'ETF Shares Vital',
-            'Vitainvest Core',
-            'iShares Tech Growth',
-          ]}
-          colors={['blue', 'violet', 'fuchsia']}
-          valueFormatter={valueFormatter}
-          yAxisWidth={55}
-          onValueChange={() => {}}
-          className="mt-6 hidden h-96 sm:block"
-        />
-        <LineChart
-          data={data}
-          index="date"
-          categories={[
-            'ETF Shares Vital',
-            'Vitainvest Core',
-            'iShares Tech Growth',
-          ]}
-          colors={['blue', 'violet', 'fuchsia']}
-          valueFormatter={valueFormatter}
-          showYAxis={false}
-          showLegend={false}
-          startEndOnly={true}
-          className="mt-6 h-72 sm:hidden"
-        />
-        
-      </>
+      <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <h1 className="text-3xl font-bold mb-4">Daily Price Data</h1>
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div className="flex-1">
+            <LineChart
+              data={data}
+              index="date"
+              categories={['ETF Shares Vital', 'Vitainvest Core', 'iShares Tech Growth']}
+              colors={['amber', 'red', 'purple']}
+              valueFormatter={(value) => `${value.toLocaleString('en-US')} USD`}
+              className="h-96"
+            />
+          </div>
+        </div>
+      </div>
     );
   }
+  

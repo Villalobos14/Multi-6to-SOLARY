@@ -67,7 +67,7 @@ const Navigation = () => {
         variants={containerVariants}
         animate={containerControls}
         initial="close"
-        className="bg-neutral-900 flex flex-col z-10 gap-20 p-5 absolute top-0 left-0 h-full shadow shadow-neutral-600"
+        className="bg-neutral-900 flex flex-col z-10 gap-20 p-5 rounded-xl absolute top-6 left-2 bottom-5   shadow shadow-neutral-600"
       >
         <div className="flex flex-row w-full justify-between place-items-center">
           <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-700 rounded-full" />
@@ -114,29 +114,7 @@ const Navigation = () => {
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
         </div>
-        <div className="flex flex-col gap-3">
-          <ProjectLink
-            name="Virtual Reality"
-            setSelectedProject={setSelectedProject}
-          >
-            <div className="min-w-4 mx-2 border-pink-600 border rounded-full aspect-square bg-pink-700" />
-          </ProjectLink>
-          <ProjectLink
-            name="Apple Vision Pro"
-            setSelectedProject={setSelectedProject}
-          >
-            <div className="min-w-4 mx-2 border-indigo-600 border rounded-full aspect-square bg-indigo-700" />
-          </ProjectLink>
-          <ProjectLink name="Porsche" setSelectedProject={setSelectedProject}>
-            <div className="min-w-4 mx-2 border-cyan-600 border rounded-full aspect-square bg-cyan-700" />
-          </ProjectLink>
-          <ProjectLink
-            name="Secret Project"
-            setSelectedProject={setSelectedProject}
-          >
-            <div className="min-w-4 mx-2 border-yellow-600 border rounded-full aspect-square bg-yellow-700" />
-          </ProjectLink>
-        </div>
+        
       </motion.nav>
       <AnimatePresence>
         {selectedProject && (

@@ -1,4 +1,3 @@
-// 'use client';
 import { BarChart, Card, Divider, Switch } from '@tremor/react';
 import { useState } from 'react';
 
@@ -81,11 +80,11 @@ export default function Example() {
   const [showComparison, setShowComparison] = useState(false);
   return (
     <>
-      <Card className="sm:mx-auto sm:max-w-2xl">
-        <h3 className="ml-1 mr-1 font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
+      <Card className="bg-amber-100 text-amber-600 sm:mx-auto sm:max-w-2xl ">
+        <h3 className="ml-1 mr-1 font-semibold text-amber-600">
           Sales overview
         </h3>
-        <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+        <p className="text-amber-600">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
         </p>
         <BarChart
@@ -94,7 +93,7 @@ export default function Example() {
           categories={
             showComparison ? ['Last Year', 'This Year'] : ['This Year']
           }
-          colors={showComparison ? ['cyan', 'blue'] : ['blue']}
+          colors={showComparison ? ['cyan', 'blue'] : ['amber']}
           valueFormatter={valueFormatter}
           yAxisWidth={45}
           className="mt-6 hidden h-60 sm:block"
@@ -118,7 +117,7 @@ export default function Example() {
           />
           <label
             htmlFor="comparison"
-            className="text-tremor-default text-tremor-content dark:text-dark-tremor-content"
+            className="text-amber-600"
           >
             Show same period last year
           </label>
