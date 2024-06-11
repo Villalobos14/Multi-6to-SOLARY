@@ -9,14 +9,14 @@ import NavigationLink from "./NavigationLink"
 import {
   UsersIcon,
 } from "@heroicons/react/24/outline"
-i
+
 const App = () => {
   return (
     <main className="w-full h-screen flex flex-row relative">
       <Navigation />
       <section className="flex flex-col p-6 ml-20 w-full gap-5">
         <div className="flex items-center justify-between rounded-lg ">
-          <h1 className="text-4xl font-bold text-neutral-200 tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
+          <h1 className="text-4xl  text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
             Statistics
           </h1>
           <NavigationLink name="Users">
@@ -26,7 +26,7 @@ const App = () => {
         <div>
           <KpiCard />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white rounded-xl px-5 pt-6 pb-2"> {/* Contenedor de la cuadrícula */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white rounded-xl px-5 pt-6 "> {/* Contenedor de la cuadrícula */}
           <div className="md:col-span-1"> {/* Primer columna de la cuadrícula */}
             <div className="mb-5"> {/* Espacio entre los componentes */}
               <CardStats />

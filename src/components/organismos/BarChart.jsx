@@ -80,11 +80,11 @@ export default function Example() {
   const [showComparison, setShowComparison] = useState(false);
   return (
     <>
-      <Card className="bg-amber-100 text-amber-600 sm:mx-auto sm:max-w-2xl ">
-        <h3 className="ml-1 mr-1 font-semibold text-amber-600">
+      <Card className="bg-amber-100 text-gray-100 sm:mx-auto sm:max-w-2xl ">
+        <h3 className=" mr-1 font-semibold text-gray-100">
           Sales overview
         </h3>
-        <p className="text-amber-600">
+        <p className="text-gray-100">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
         </p>
         <BarChart
@@ -117,7 +117,7 @@ export default function Example() {
           />
           <label
             htmlFor="comparison"
-            className="text-amber-600"
+            className="text-gray-100"
           >
             Show same period last year
           </label>
