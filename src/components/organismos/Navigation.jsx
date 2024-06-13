@@ -99,13 +99,13 @@ const Navigation = () => {
 
         <div className="flex flex-col gap-3">
           {/* ruteo de para la sidebar, pasa la ruta en el href */}
-          <NavigationLink name="Dashboard" href="/login">
+          <NavigationLink name="Dashboard" href="/dashboard">
             <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
-          <NavigationLink name="Gráficas" href="/register">
+          <NavigationLink name="Gráficas" href="/graficas">
             <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
-          <NavigationLink name="Estadistica" href="/">
+          <NavigationLink name="Estadistica" href="/estadistica">
             <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
           <NavigationLink name="Reporte" href="/reporte">
