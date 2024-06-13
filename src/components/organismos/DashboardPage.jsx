@@ -27,7 +27,7 @@ const App = () => {
         <div>
           <KpiCard />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white rounded-xl px-5 pt-6 "> {/* Contenedor de la cuadrícula */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-[#1f2937] rounded-xl px-5 pt-6 bg-[#091524] "> {/* Contenedor de la cuadrícula */}
           <div className="md:col-span-1"> {/* Primer columna de la cuadrícula */}
             <div className="mb-5"> {/* Espacio entre los componentes */}
               <CardStats />
