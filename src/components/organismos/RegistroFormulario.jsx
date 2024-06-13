@@ -66,7 +66,7 @@ function RegisterForm() {
   };
 
   return (
-    <form className="flex flex-col items-center justify-center px-10 py-6 w-full text-xs bg-gradient-to-tl from-yellow-950 from-10% via-red-950 via-30% to-black to-100% text-white sm:px-5" onSubmit={handleSubmit}>
+    <form className="flex flex-col items-center justify-center px-10 py-6 w-full text-xs bg-[#101010] text-white sm:px-5" onSubmit={handleSubmit}>
       {/* Encabezado del formulario */}
       <header className="flex justify-between gap-0 text-lg leading-6 text-center ">
         <Link to="/">
@@ -144,7 +144,7 @@ function RegisterForm() {
         {/* Enlace de inicio de sesión */}
         <div className="flex mt-5">
           <div className="text-sm">¿Ya tienes una cuenta?</div>
-          <Link to="/login" className="ml-1 text-sm text-red-400">Inicia sesión aquí</Link>
+          <Link to="/login" className="ml-1 text-sm text-orange-400">Inicia sesión aquí</Link>
         </div>
       </section>
     </form>

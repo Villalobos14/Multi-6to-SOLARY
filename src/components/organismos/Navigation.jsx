@@ -8,7 +8,6 @@ import {
   Square2StackIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline"
-import ProjectLink from "./ProjectLink"
 import ProjectNavigation from "./ProjectNavigation"
 
 const containerVariants = {
@@ -97,24 +96,26 @@ const Navigation = () => {
             </svg>
           </button>
         </div>
+
         <div className="flex flex-col gap-3">
-          <NavigationLink name="Dashboard">
+          {/* ruteo de para la sidebar, pasa la ruta en el href */}
+          <NavigationLink name="Dashboard" href="/login">
             <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
-          <NavigationLink name="Projects">
+          <NavigationLink name="Gráficas" href="/register">
             <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
-          <NavigationLink name="Tasks">
+          <NavigationLink name="Estadistica" href="/">
             <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
-          <NavigationLink name="Reporting">
+          <NavigationLink name="Reporte" href="/reporte">
             <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
-          <NavigationLink name="Users">
+          <NavigationLink name="Historial" href="/historial">
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
         </div>
-        
+
       </motion.nav>
       <AnimatePresence>
         {selectedProject && (

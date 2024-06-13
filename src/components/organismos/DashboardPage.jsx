@@ -6,6 +6,7 @@ import CardStats from "../../components/organismos/CardStats"
 import BarChart from "../../components/organismos/BarChart"
 import KpiCard from "../../components/organismos/KpiCard"
 import NavigationLink from "./NavigationLink"
+import Login from "../../components/organismos/FormLogin"
 import {
   UsersIcon,
 } from "@heroicons/react/24/outline"
