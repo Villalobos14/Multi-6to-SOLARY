@@ -15,7 +15,7 @@ const containerVariants = {
     transition: {
       type: "spring",
       damping: 15,
-      duration: 0.5,
+      duration: 0.1,
     },
   },
   open: {
@@ -23,7 +23,7 @@ const containerVariants = {
     transition: {
       type: "spring",
       damping: 15,
-      duration: 0.5,
+      duration: 1.7,
     },
   },
 }
@@ -42,14 +42,14 @@ const textVariants = {
     opacity: 0,
     display: "none",
     transition: {
-      duration: 0.1,
+      duration: 0.3,
     },
   },
   open: {
     opacity: 1,
     display: "block",
     transition: {
-      duration: 1.7,
+      duration: 0.3,
     },
   },
 }
@@ -110,36 +110,49 @@ const Navigation = () => {
         </button>
       </div>
 
-        <div className="flex flex-col gap-3">
-          {/* ruteo de para la sidebar, pasa la ruta en el href */}
-          <NavigationLink name="Dashboard" href="/login">
-            <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
-          </NavigationLink>
-          <NavigationLink name="Gráficas" href="/register">
-            <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
-          </NavigationLink>
-          <NavigationLink name="Estadistica" href="/">
-            <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
-          </NavigationLink>
-          <NavigationLink name="Reporte" href="/reporte">
-            <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
-          </NavigationLink>
-          <NavigationLink name="Historial" href="/historial">
-            <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
-          </NavigationLink>
-        </div>
-
-      </motion.nav>
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectNavigation
-            selectedProject={selectedProject}
-            setSelectedProject={setSelectedProject}
-            isOpen={isOpen}
-          />
-        )}
-      </AnimatePresence>
-    </>
+      <div className="flex flex-col gap-3">
+        <NavigationLink
+          name="Dashboard"
+          href="/dashboard"
+          textVariants={textVariants}
+          isOpen={isOpen}
+        >
+          <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+        </NavigationLink>
+        <NavigationLink
+          name="Gráficas"
+          href="/graficas"
+          textVariants={textVariants}
+          isOpen={isOpen}
+        >
+          <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+        </NavigationLink>
+        <NavigationLink
+          name="Estadistica"
+          href="/estadistica"
+          textVariants={textVariants}
+          isOpen={isOpen}
+        >
+          <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+        </NavigationLink>
+        <NavigationLink
+          name="Reporte"
+          href="/reporte"
+          textVariants={textVariants}
+          isOpen={isOpen}
+        >
+          <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+        </NavigationLink>
+        <NavigationLink
+          name="Historial"
+          href="/historial"
+          textVariants={textVariants}
+          isOpen={isOpen}
+        >
+          <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+        </NavigationLink>
+      </div>
+    </motion.nav>
   )
 }
 
