@@ -15,7 +15,7 @@ const containerVariants = {
     transition: {
       type: "spring",
       damping: 15,
-      duration: 0.1,
+      duration: 0.5,
     },
   },
   open: {
@@ -23,7 +23,7 @@ const containerVariants = {
     transition: {
       type: "spring",
       damping: 15,
-      duration: 1.7,
+      duration: 0.5,
     },
   },
 }
@@ -42,14 +42,14 @@ const textVariants = {
     opacity: 0,
     display: "none",
     transition: {
-      duration: 0.3,
+      duration: 0.1,
     },
   },
   open: {
     opacity: 1,
     display: "block",
     transition: {
-      duration: 0.3,
+      duration: 1.7,
     },
   },
 }

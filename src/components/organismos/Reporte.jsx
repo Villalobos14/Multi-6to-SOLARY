@@ -31,12 +31,12 @@ const App = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-[#1f2937] rounded-xl px-5 pt-6 bg-[#091524] "> {/* Contenedor de la cuadrícula */}
           <div className="md:col-span-1"> {/* Primer columna de la cuadrícula */}
             <div className="mb-5"> {/* Espacio entre los componentes */}
-              <CardStats />
+              <LineCharts/>
             </div>
           </div>
           <div className="md:col-span-1 pt-10 px-2"> {/* Segunda columna de la cuadrícula */}
             <div className="w-full h-90"> {/* Reducir el tamaño de BarChart */}
-              <BarChart />
+             <LineCharts/>
             </div>
           </div>
         </div>

@@ -24,8 +24,8 @@ const options = {
 const LineChart = () => {
     const [sensores, setSensores] = useState({
         temperature: 0,
-        bpm: 0,
-        aceleration: 0
+        bpm: 5,
+        aceleration: 10
     });
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const LineChart = () => {
             setSensores({
                 temperature: getRandomInt(20, 30),
                 bpm: getRandomInt(60, 100),
-                aceleration: getRandomInt(0, 10)
+                aceleration: getRandomInt(20, 100)
             });
             setHours(prevTime => {
                 const updatedTime = [...prevTime, newHour];

@@ -1,12 +1,11 @@
 import React from 'react';
 import { FaHome, FaChartBar, FaCog, FaChartLine } from 'react-icons/fa';
 import Navigation from "../../components/organismos/Navigation"
-import LineCharts from '../../components/organismos/LineCharts'
 import CardStats from "../../components/organismos/CardStats"
 import BarChart from "../../components/organismos/BarChart"
 import KpiCard from "../../components/organismos/KpiCard"
 import NavigationLink from "./NavigationLink"
-import Login from "../../components/organismos/FormLogin"
+
 
 import {
   UsersIcon,

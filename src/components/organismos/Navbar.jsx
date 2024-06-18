@@ -28,11 +28,11 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <a href="#" className="py-2 px-3 border rounded-md">
+            <a href="/login" className="py-2 px-3 border rounded-md">
               Sign In
             </a>
             <a
-              href="#"
+              href="/register"
               className="bg-gradient-to-r from-yellow-500 to-red-800 py-2 px-3 rounded-md"
             >
               Create an account
@@ -54,11 +54,11 @@ const Navbar = () => {
               ))}
             </ul>
             <div className="flex space-x-6">
-              <a href="#" className="py-2 px-3 border rounded-md">
+              <a href="/login" className="py-2 px-3 border rounded-md">
                 Sign In
               </a>
               <a
-                href="#"
+                href="/register"
                 className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800"
               >
                 Create an account
