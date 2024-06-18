@@ -1,44 +1,26 @@
-// src/components/TransitionWrapper.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import React from 'react'
+import { motion } from 'framer-motion'
 
-const transitionVariants = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 1.7,
-      ease: 'easeInOut', // Easing personalizado
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 1,
-      ease: 'easeInOut', // Easing personalizado
-    },
-  },
-};
-
-
-const TransitionWrapper = ({ children }) => {
-  const location = useLocation();
-
+export default function TransitionWrapper({ children }) {
   return (
-    <motion.div
-      key={location.pathname} // Asegura que Framer Motion aplique la animación en cada cambio de ruta
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={transitionVariants}
-      style={{ overflowY: 'hidden' }} // Oculta el desbordamiento vertical durante la animación
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-export default TransitionWrapper;
+    <>
+      <motion.div
+        className='fixed top-0 left-0 w-full h-screen bg-[#101010] origin-bottom z-50'
+        initial={{ scaleY: 1 }}
+        animate={{ scaleY: 0 }}
+        exit={{ scaleY: 1 }}
+        transition={{ duration: 1, ease: [0.87, 0, 0.13, 1] }}
+      />
+      <motion.div
+        className='fixed top-0 left-0 w-full h-screen bg-[#101010] origin-top z-50'
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 0 }}
+        exit={{ scaleY: 1 }}
+        transition={{ duration: 1, ease: [0.87, 0, 0.13, 1], delay: 0.4 }}
+      />
+      <div className="relative z-10">
+        {children}
+      </div>
+    </>
+  )
+}

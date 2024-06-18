@@ -17,11 +17,11 @@ function QuoteSection() {
         className="absolute inset-0 object-cover w-full h-full"
       />
       {/* Contenido de la sección de citas */}
-      <div className="relative z-10 p-6 sm:px-5 mt-80">
-        <h2 className="text-xs font-bold tracking-widest leading-3 text-white text-opacity-100">
+      <div className="relative z-10  sm:px-5 mt-80">
+        <h2 className="pl-2 text-xs font-bold tracking-widest leading-3 text-white text-opacity-100">
           A WISE QUOTE
         </h2>
-        <h1 className="text-8xl leading-3 text-white mt-[508px] sm:mt-10 sm:text-8xl">
+        <h1 className="text-8xl font-medium leading-3 text-white mt-[508px] sm:mt-10 sm:text-8xl">
           Get in to it
         </h1>
         <p className="mt-14 ml-2.5 text-sm leading-5 text-white text-opacity-90 w-[263px] sm:mt-10">
@@ -78,15 +78,15 @@ function LoginForm() {
         <h2 className="mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-yellow-600 text-transparent bg-clip-text">
           Welcome back
         </h2>
-        <p className="mt-5 text-xl  text-center text-white">
+        <p className="mt-5 font-light  text-xl text-center text-white">
           Inicia sesión para poder ingresar
         </p>
         {/* Campo de entrada para el correo electrónico */}
-        <label htmlFor="emailInput" className="w-full pl-40 mt-5 text-base">
+        <label htmlFor="emailInput" className="w-full pl-20 mt-5 text-base">
           Email
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-1/2 bg-opacity-5 border border-gray-700"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 border-none text-base text-white w-3/4 bg-opacity-15  "
           type="email"
           id="emailInput"
           placeholder="Enter your email"
@@ -94,11 +94,11 @@ function LoginForm() {
           onChange={(e) => setEmail(e.target.value)}
         />
         {/* Campo de entrada para la contraseña */}
-        <label htmlFor="passwordInput" className=" w-full pl-40 self-start mt-5 text-base">
+        <label htmlFor="passwordInput" className=" w-full pl-20 self-start mt-5 text-base">
           Password
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-1/2 bg-opacity-5 border border-gray-700"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 border-none text-base text-white w-3/4 bg-opacity-15  "
           type="password"
           id="passwordInput"
           placeholder="Enter your password"
@@ -117,13 +117,13 @@ function LoginForm() {
         </div>
         {/* Botón de login */}
         <button
-          className="mt-6 px-3 py-2 rounded-md bg-white text-black text-base w-full"
+          className="mt-6 px-3 py-2  rounded-md bg-white text-black text-base w-3/4"
           type="submit"
         >
           Log in
         </button>
         {/* Enlace de registro */}
-        <div className="flex mt-5">
+        <div className="flex mt-5 ">
           <div className="text-sm">¿No tienes una cuenta?</div>
           <Link to="/register" className="ml-1 text-sm text-red-400">Regístrate aquí</Link>
         </div>
