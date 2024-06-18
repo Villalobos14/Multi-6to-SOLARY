@@ -121,7 +121,7 @@ const Navigation = () => {
         </NavigationLink>
         <NavigationLink
           name="Gráficas"
-          href="/graficas"
+          to="/graficas"
           textVariants={textVariants}
           isOpen={isOpen}
         >
@@ -129,7 +129,7 @@ const Navigation = () => {
         </NavigationLink>
         <NavigationLink
           name="Estadistica"
-          href="/estadistica"
+          to="/estadistica"
           textVariants={textVariants}
           isOpen={isOpen}
         >
@@ -137,7 +137,7 @@ const Navigation = () => {
         </NavigationLink>
         <NavigationLink
           name="Reporte"
-          href="/reporte"
+          to="/reporte"
           textVariants={textVariants}
           isOpen={isOpen}
         >
@@ -145,7 +145,7 @@ const Navigation = () => {
         </NavigationLink>
         <NavigationLink
           name="Historial"
-          href="/historial"
+          to="/historial"
           textVariants={textVariants}
           isOpen={isOpen}
         >

@@ -1,7 +1,7 @@
 //navbar section
-
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import logo from "../../assets/LogoVenture.png";
 import { navItems } from "../../constants";
 
@@ -23,20 +23,20 @@ const Navbar = () => {
           <ul className="hidden lg:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
               <li key={index}>
-                <a href={item.href}>{item.label}</a>
+                <Link to={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <a href="/login" className="py-2 px-3 border rounded-md">
+            <Link to="/login" className="py-2 px-3 border rounded-md">
               Sign In
-            </a>
-            <a
-              href="/register"
+            </Link>
+            <Link
+              to="/register"
               className="bg-gradient-to-r from-yellow-500 to-red-800 py-2 px-3 rounded-md"
             >
               Create an account
-            </a>
+            </Link>
           </div>
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
@@ -49,20 +49,20 @@ const Navbar = () => {
             <ul>
               {navItems.map((item, index) => (
                 <li key={index} className="py-4">
-                  <a href={item.href}>{item.label}</a>
+                  <Link to={item.href}>{item.label}</Link>
                 </li>
               ))}
             </ul>
             <div className="flex space-x-6">
-              <a href="/login" className="py-2 px-3 border rounded-md">
+              <Link to="/login" className="py-2 px-3 border rounded-md">
                 Sign In
-              </a>
-              <a
-                href="/register"
+              </Link>
+              <Link
+                to="/register"
                 className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800"
               >
                 Create an account
-              </a>
+              </Link>
             </div>
           </div>
         )}
