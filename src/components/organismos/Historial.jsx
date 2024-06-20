@@ -18,8 +18,8 @@ const App = () => {
       <Navigation />
       <section className="flex flex-col p-6 ml-20 w-full gap-5">
         <div className="flex items-center justify-between rounded-lg ">
-          <h1 className="text-4xl  text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
-            Statistics
+          <h1 className="text-4xl font-light  text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
+            Historial
           </h1>
           <NavigationLink to="/dashboard" name="users">
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
