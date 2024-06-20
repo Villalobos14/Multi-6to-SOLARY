@@ -1,6 +1,7 @@
 import { motion, useAnimationControls } from "framer-motion"
 import { useState, useEffect } from "react"
 import NavigationLink from "./NavigationLink"
+import TransitionWrapper from '../../components/organismos/TransitionWrapper';
 import {
   ChartBarIcon,
   ChartPieIcon,
@@ -75,6 +76,9 @@ const Navigation = () => {
   }
 
   return (
+    <TransitionWrapper>
+
+    
     <motion.nav
       variants={containerVariants}
       animate={containerControls}
@@ -113,14 +117,14 @@ const Navigation = () => {
       <div className="flex flex-col gap-3">
         <NavigationLink
           name="Dashboard"
-          href="/dashboard"
+          to="/dashboard"
           textVariants={textVariants}
           isOpen={isOpen}
         >
           <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
         </NavigationLink>
         <NavigationLink
-          name="Gráficas"
+          name="Graficas"
           to="/graficas"
           textVariants={textVariants}
           isOpen={isOpen}
@@ -153,6 +157,7 @@ const Navigation = () => {
         </NavigationLink>
       </div>
     </motion.nav>
+    </TransitionWrapper>
   )
 }
 

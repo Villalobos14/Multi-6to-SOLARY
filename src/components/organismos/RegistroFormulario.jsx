@@ -18,10 +18,10 @@ function QuoteSection() {
       />
       {/* Contenido de la sección de citas */}
       <div className="relative z-10 p-6 sm:px-5 mt-80">
-        <h2 className="text-xs font-bold tracking-widest leading-3 text-white text-opacity-100">
+        <h2 className="pl-2 text-xs font-bold tracking-widest leading-3 text-white text-opacity-100">
           A WISE QUOTE
         </h2>
-        <h1 className="text-8xl leading-3 text-white mt-[508px] sm:mt-10 sm:text-8xl">
+        <h1 className="text-8xl font-medium leading-3 text-white mt-[508px] sm:mt-10 sm:text-8xl">
           Get in to it
         </h1>
         <p className="mt-14 ml-2.5 text-sm leading-5 text-white text-opacity-90 w-[263px] sm:mt-10">
@@ -76,22 +76,22 @@ function RegisterForm() {
             className="shrink-0 w-4 border-0 aspect-square mr-2 mt-1"
           />
         </Link>
-        <div>Venture</div>
+        <div className="font-light text-xl ">Venture</div>
       </header>
       {/* Sección principal del formulario */}
       <section className="flex flex-col items-center justify-center self-stretch px-5 py-10 mt-10 sm:mt-5">
         <h2 className="mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-yellow-600 text-transparent bg-clip-text">
           Create Account
         </h2>
-        <p className="mt-5 text-sm text-center text-white">
+        <p className="mt-5 font-light  text-xl text-center text-white">
           Regístrate para comenzar
         </p>
         {/* Campo de entrada para el nombre */}
-        <label htmlFor="nameInput" className="self-start mt-5 text-base">
+        <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20 ">
           Name
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="text"
           id="nameInput"
           placeholder="Enter your name"
@@ -99,11 +99,11 @@ function RegisterForm() {
           onChange={(e) => setName(e.target.value)}
         />
         {/* Campo de entrada para el correo electrónico */}
-        <label htmlFor="emailInput" className="self-start mt-5 text-base">
+        <label htmlFor="emailInput" className="self-start mt-5 text-base ml-20">
           Email
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="email"
           id="emailInput"
           placeholder="Enter your email"
@@ -111,11 +111,11 @@ function RegisterForm() {
           onChange={(e) => setEmail(e.target.value)}
         />
         {/* Campo de entrada para la contraseña */}
-        <label htmlFor="passwordInput" className="self-start mt-5 text-base">
+        <label htmlFor="passwordInput" className="self-start mt-5 text-base ml-20">
           Password
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="password"
           id="passwordInput"
           placeholder="Enter your password"
@@ -123,11 +123,11 @@ function RegisterForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* Campo de entrada para confirmar la contraseña */}
-        <label htmlFor="confirmPasswordInput" className="self-start mt-5 text-base">
+        <label htmlFor="confirmPasswordInput" className="self-start mt-5 text-base ml-20">
           Confirm Password
         </label>
         <input
-          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base text-white w-full bg-opacity-5"
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="password"
           id="confirmPasswordInput"
           placeholder="Confirm your password"
@@ -136,7 +136,7 @@ function RegisterForm() {
         />
         {/* Botón de registro */}
         <button
-          className="mt-6 px-3 py-2 rounded-md bg-white text-black text-base w-full"
+          className="mt-6 px-3 py-2 rounded-md bg-white text-black text-base w-3/4"
           type="submit"
         >
           Sign Up

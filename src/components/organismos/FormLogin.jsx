@@ -71,14 +71,14 @@ function LoginForm() {
       />
           
         </Link>
-        <div>Venture</div>
+        <div className="font-light text-xl pb-2">Venture</div>
       </header>
       {/* Sección principal del formulario */}
-      <section className="flex flex-col items-center  self-stretch px-5 py-10 mt-10 sm:mt-5">
-        <h2 className="mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-yellow-600 text-transparent bg-clip-text">
+      <section className="flex flex-col items-center  self-stretch px-5 py-5 mt-10 sm:mt-5">
+        <h2 className=" pt-10 pb-5 mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-yellow-600 text-transparent bg-clip-text">
           Welcome back
         </h2>
-        <p className="mt-5 font-light  text-xl text-center text-white">
+        <p className="mt-5 font-light  text-xl text-center text-white pb-10 ">
           Inicia sesión para poder ingresar
         </p>
         {/* Campo de entrada para el correo electrónico */}
@@ -106,7 +106,8 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* Checkbox de "Remember me" */}
-        <div className="flex mt-5 justify-items-start">
+        <div className="justify-items-start flex justify-start w-3/4 ">
+        <div className="mt-5 ">
           <input 
             type="checkbox"
             checked={remember}
@@ -115,6 +116,8 @@ function LoginForm() {
           />
           <label htmlFor="rememberMe" className="ml-2 cursor-pointer" onClick={() => setRemember(prevState => !prevState)}>Remember me</label>
         </div>
+        </div>
+        
         {/* Botón de login */}
         <button
           className="mt-6 px-3 py-2  rounded-md bg-white text-black text-base w-3/4"

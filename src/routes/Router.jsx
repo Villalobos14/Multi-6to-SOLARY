@@ -11,22 +11,22 @@ import Graficas from '../components/organismos/Graficas';
 import Estadistica from '../components/organismos/Estadistica';
 import Reporte from '../components/organismos/Reporte';
 import Historial from '../components/organismos/Historial';
-import TransitionWrapper from '../components/organismos/TransitionWrapper';
+
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<TransitionWrapper><Login /></TransitionWrapper>} />
-        <Route path="/register" element={<TransitionWrapper><Register /></TransitionWrapper>} />
-        <Route path="/dashboard" element={<TransitionWrapper><Dashboard /></TransitionWrapper>} />
-        <Route path="/calculadora" element={<TransitionWrapper><Calculadora /></TransitionWrapper>} />
-        <Route path="/home" element={<TransitionWrapper><Home /></TransitionWrapper>} />
-        <Route path="/graficas" element={<TransitionWrapper><Graficas /></TransitionWrapper>} />
-        <Route path="/estadistica" element={<TransitionWrapper><Estadistica /></TransitionWrapper>} />
-        <Route path="/reporte" element={<TransitionWrapper><Reporte /></TransitionWrapper>} />
-        <Route path="/historial" element={<TransitionWrapper><Historial /></TransitionWrapper>} />
+        <Route path="/" element={<Landing/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/calculadora" element={<Calculadora/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/graficas" element={<Graficas/>}/>
+        <Route path="/estadistica" element={<Estadistica/>}/>
+        <Route path="/reporte" element={<Reporte/>}/>
+        <Route path="/historial" element={<Historial/>}/>
       </Routes>
     </BrowserRouter>
   );
