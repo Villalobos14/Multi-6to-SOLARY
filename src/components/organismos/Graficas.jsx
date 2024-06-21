@@ -21,7 +21,7 @@ const App = () => {
           <h1 className="text-4xl font-light text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
             Graficas
           </h1>
-          <NavigationLink to="/dashboard" name="users">
+          <NavigationLink to="/" name="users">
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
         </div>

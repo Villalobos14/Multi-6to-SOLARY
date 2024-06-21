@@ -20,7 +20,7 @@ const App = () => {
           <h1 className="text-4xl  text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
             Statistics
           </h1>
-          <NavigationLink name="Users">
+          <NavigationLink to="/" name="Users">
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
         </div>
