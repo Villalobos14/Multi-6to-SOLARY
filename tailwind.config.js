@@ -56,7 +56,7 @@ module.exports = {
           background: {
             muted: '#131A2B',
             subtle: colors.gray[800],
-            DEFAULT: colors.gray[900],
+            DEFAULT: "#10151b",
             emphasis: colors.gray[300],
           },
           border: {

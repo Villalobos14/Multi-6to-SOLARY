@@ -1,7 +1,7 @@
 //navbar section
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import logo from "../../assets/LogoVenture.png";
 import { navItems } from "../../constants";
 
@@ -23,7 +23,12 @@ const Navbar = () => {
           <ul className="hidden lg:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
               <li key={index}>
-                <Link to={item.href}>{item.label}</Link>
+                <Link
+                  className="cursor-pointer"
+                  smooth={true}
+                  to={item.href}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>

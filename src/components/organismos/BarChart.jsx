@@ -80,7 +80,8 @@ export default function Example() {
   const [showComparison, setShowComparison] = useState(false);
   return (
     <>
-      <Card className="bg-amber-100 text-gray-100 sm:mx-auto sm:max-w-2xl ">
+      <div 
+      className="bg-transparent text-gray-100 sm:mx-auto sm:max-w-2xl ">
         <h3 className=" mr-1 font-semibold text-gray-100">
           Sales overview
         </h3>
@@ -122,7 +123,7 @@ export default function Example() {
             Show same period last year
           </label>
         </div>
-      </Card>
+      </div>
     </>
   );
 }

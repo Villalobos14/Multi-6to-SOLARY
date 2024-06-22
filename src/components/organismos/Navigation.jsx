@@ -83,7 +83,7 @@ const Navigation = () => {
       variants={containerVariants}
       animate={containerControls}
       initial="close"
-      className="bg-neutral-900 flex flex-col z-10 gap-20 p-5 rounded-xl absolute top-6 left-2 bottom-5 shadow shadow-neutral-600"
+      className="bg-[#10151b] border border-[#10151b] flex flex-col z-10 gap-20 p-5 rounded-xl absolute top-6 left-2 bottom-5 "
     >
       <div className="flex flex-row w-full justify-between place-items-center">
         <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-700 rounded-full" />

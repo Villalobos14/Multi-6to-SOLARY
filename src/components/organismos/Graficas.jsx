@@ -17,7 +17,8 @@ const App = () => {
     <main className="w-full h-screen flex flex-row relative">
       <Navigation />
       <section className="flex flex-col p-6 ml-20 w-full gap-5">
-        <div className="flex items-center justify-between rounded-lg ">
+        {/* Barra superior fija */}
+        <div className="flex items-center justify-between rounded-lg">
           <h1 className="text-4xl font-light text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
             Graficas
           </h1>
@@ -25,21 +26,54 @@ const App = () => {
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
           </NavigationLink>
         </div>
-        <div>
-          <KpiCard />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-[#1f2937] rounded-xl px-5 pt-6 bg-[#091524] "> {/* Contenedor de la cuadrícula */}
-          <div className="md:col-span-1"> {/* Primer columna de la cuadrícula */}
-            <div className="mb-5"> {/* Espacio entre los componentes */}
-              <LineCharts/>
+
+        {/* Nuevo div padre con dos divs hijos */}
+        <div className="flex w-full h-full  border p-2 border-[#1f2937] rounded-xl bg-[#091524]">
+          {/* Div izquierdo para texto */}
+          <div className="w-2/6 p-4 flex flex-col ml-10 mt-6"> {/* Div izquierdo contenedor completo*/}
+            <div className='p-2'> {/* contenedor individual */}
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+            <div className='p-2'>
+              <h2 className="text-xl font-semibold">Contenido de texto</h2>
+              <p>Aquí puedes agregar el texto que desees.</p>
+            </div>
+
+          </div>
+          {/* Div derecho para CardStats */}
+          <div className="w-4/6 p-4  flex justify-center items-center">
+            <div className="w-4/5 ">
+              <CardStats className="h-full p-4 " />
             </div>
           </div>
-          <div className="md:col-span-1 pt-10 px-2"> {/* Segunda columna de la cuadrícula */}
-            <div className="w-full h-90"> {/* Reducir el tamaño de BarChart */}
-             <LineCharts/>
-            </div>
-          </div>
         </div>
+
+
       </section>
     </main>
   )

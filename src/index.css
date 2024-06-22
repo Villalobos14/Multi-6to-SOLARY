@@ -10,6 +10,6 @@
 }
 body {
   /* Utiliza linear-gradient con los colores y porcentajes */
-  background: linear-gradient(to bottom right, #101010 30%, #101010 50%, #101010 100%);
+  background: linear-gradient(to bottom right, #0e0e0e00 30%, #0f0f0f 50%, #0f0f0f 100%);
 }
 
