@@ -94,7 +94,7 @@ export default function Example() {
           categories={
             showComparison ? ['Last Year', 'This Year'] : ['This Year']
           }
-          colors={showComparison ? ['cyan', 'blue'] : ['amber']}
+          colors={showComparison ? ['cyan', 'blue'] : ['purple']}
           valueFormatter={valueFormatter}
           yAxisWidth={45}
           className="mt-6 hidden h-60 sm:block"
@@ -118,7 +118,7 @@ export default function Example() {
           />
           <label
             htmlFor="comparison"
-            className="text-gray-100"
+            className="text-white"
           >
             Show same period last year
           </label>

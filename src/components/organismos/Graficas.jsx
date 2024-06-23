@@ -1,12 +1,8 @@
 import React from 'react';
-import { FaHome, FaChartBar, FaCog, FaChartLine } from 'react-icons/fa';
 import Navigation from "../../components/organismos/Navigation"
-import LineCharts from '../../components/organismos/LineCharts'
 import CardStats from "../../components/organismos/CardStats"
-import BarChart from "../../components/organismos/BarChart"
-import KpiCard from "../../components/organismos/KpiCard"
 import NavigationLink from "./NavigationLink"
-import Login from "../../components/organismos/FormLogin"
+
 
 import {
   UsersIcon,
@@ -18,8 +14,8 @@ const App = () => {
       <Navigation />
       <section className="flex flex-col p-6 ml-20 w-full gap-5">
         {/* Barra superior fija */}
-        <div className="flex items-center justify-between rounded-lg">
-          <h1 className="text-4xl font-light text-neutral-200 tracking-widest bg-clip-text text-transparent bg-white">
+        <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
+          <h1 className="text-4xl font-light text-neutral-200  bg-clip-text text-transparent bg-white">
             Graficas
           </h1>
           <NavigationLink to="/" name="users">
@@ -28,7 +24,7 @@ const App = () => {
         </div>
 
         {/* Nuevo div padre con dos divs hijos */}
-        <div className="flex w-full h-full  border p-2 border-[#1f2937] rounded-xl bg-[#091524]">
+        <div className="flex w-full h-full  border p-2 border-[#4e4d4d] rounded-xl px-5 pb-10  bg-[#15111d]">
           {/* Div izquierdo para texto */}
           <div className="w-2/6 p-4 flex flex-col ml-10 mt-6"> {/* Div izquierdo contenedor completo*/}
             <div className='p-2'> {/* contenedor individual */}

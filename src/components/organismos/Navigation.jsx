@@ -83,10 +83,10 @@ const Navigation = () => {
       variants={containerVariants}
       animate={containerControls}
       initial="close"
-      className="bg-[#10151b] border border-[#10151b] flex flex-col z-10 gap-20 p-5 rounded-xl absolute top-6 left-2 bottom-5 "
+      className="bg-[#15111d] border border-[#4e4d4d] flex flex-col z-10 gap-20 p-5 rounded-xl absolute top-6 left-2 bottom-5 "
     >
       <div className="flex flex-row w-full justify-between place-items-center">
-        <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-700 rounded-full" />
+        <div className="w-10 h-10 bg-gradient-to-br from-purple-900 to-blue-700 rounded-full" />
         <button
           className="p-1 rounded-full flex"
           onClick={handleOpenClose}
@@ -121,15 +121,15 @@ const Navigation = () => {
           textVariants={textVariants}
           isOpen={isOpen}
         >
-          <ChartBarIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+          <ChartBarIcon className="stroke-white stroke-[0.75] min-w-8 w-8" />
         </NavigationLink>
-        <NavigationLink
+        <NavigationLink 
           name="Graficas"
           to="/graficas"
-          textVariants={textVariants}
+          textVariants={textVariants} 
           isOpen={isOpen}
         >
-          <Square2StackIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+          <Square2StackIcon className="stroke-white stroke-[0.75] min-w-8 w-8" />
         </NavigationLink>
         <NavigationLink
           name="Estadistica"
@@ -137,7 +137,7 @@ const Navigation = () => {
           textVariants={textVariants}
           isOpen={isOpen}
         >
-          <DocumentCheckIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+          <DocumentCheckIcon className="stroke-white stroke-[0.75] min-w-8 w-8" />
         </NavigationLink>
         <NavigationLink
           name="Reporte"
@@ -145,7 +145,7 @@ const Navigation = () => {
           textVariants={textVariants}
           isOpen={isOpen}
         >
-          <ChartPieIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+          <ChartPieIcon className="stroke-white stroke-[0.75] min-w-8 w-8" />
         </NavigationLink>
         <NavigationLink
           name="Historial"
@@ -153,7 +153,7 @@ const Navigation = () => {
           textVariants={textVariants}
           isOpen={isOpen}
         >
-          <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
+          <UsersIcon className="stroke-white stroke-[0.75] min-w-8 w-8" />
         </NavigationLink>
       </div>
     </motion.nav>
