@@ -5,13 +5,13 @@ import { testimonials } from "../../constants";
 const Testimonials = () => {
   return (
     <div className="mt-20 tracking-wide " id="testimonials">
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-10 lg:my-20 bg-gradient-to-r from-purple-100 to-yellow-800 text-transparent bg-clip-text">
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-10 lg:my-20 bg-gradient-to-r from-purple-100 to-[#d70be6] text-transparent bg-clip-text">
         What People are saying
       </h2>
       <div className="flex flex-wrap justify-center">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 py-2">
-            <div className="bg-neutral-900 rounded-md p-6 text-md border border-neutral-800 font-thin">
+            <div className="bg-white bg-opacity-10 backdrop-blur rounded-md p-6 text-md border border-neutral-800 font-thin">
               <p>{testimonial.text}</p>
               <div className="flex mt-8 items-start">
                 <img

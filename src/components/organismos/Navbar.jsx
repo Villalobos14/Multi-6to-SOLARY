@@ -1,7 +1,7 @@
-//navbar section
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import logo from "../../assets/LogoVenture.png";
 import { navItems } from "../../constants";
 
@@ -23,22 +23,22 @@ const Navbar = () => {
           <ul className="hidden lg:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
               <li key={index}>
-                <Link
+                <ScrollLink
                   className="cursor-pointer"
                   smooth={true}
                   to={item.href}>
                   {item.label}
-                </Link>
+                </ScrollLink>
               </li>
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <Link to="/login" className="py-2 px-3 border rounded-md">
+            <Link to="/login" className="py-2 px-3 border rounded-md bg-white bg-opacity-10 backdrop-blur">
               Sign In
             </Link>
             <Link
               to="/register"
-              className="bg-gradient-to-r from-yellow-500 to-red-800 py-2 px-3 rounded-md"
+              className="bg-[#52288e] py-2 px-3 rounded-md"
             >
               Create an account
             </Link>
@@ -54,7 +54,13 @@ const Navbar = () => {
             <ul>
               {navItems.map((item, index) => (
                 <li key={index} className="py-4">
-                  <Link to={item.href}>{item.label}</Link>
+                  <ScrollLink
+                    className="cursor-pointer"
+                    smooth={true}
+                    to={item.href}
+                    onClick={() => setMobileDrawerOpen(false)}>
+                    {item.label}
+                  </ScrollLink>
                 </li>
               ))}
             </ul>

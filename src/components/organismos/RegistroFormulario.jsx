@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { ShowAlertAssistance } from '../../assets/assistances/AlertAssistance';
-import LoginImage from "../../assets/login.jpg"
+import LoginImage from "/cover.png"
 import logo from "../../assets/LogoVenture.png";
 
 // Componente para la sección de citas
@@ -80,7 +80,7 @@ function RegisterForm() {
       </header>
       {/* Sección principal del formulario */}
       <section className="flex flex-col items-center justify-center self-stretch px-5 py-10 mt-10 sm:mt-5">
-        <h2 className="mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-yellow-600 text-transparent bg-clip-text">
+        <h2 className="mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-white text-transparent bg-clip-text">
           Create Account
         </h2>
         <p className="mt-5 font-light  text-xl text-center text-white">
@@ -144,7 +144,7 @@ function RegisterForm() {
         {/* Enlace de inicio de sesión */}
         <div className="flex mt-5">
           <div className="text-sm">¿Ya tienes una cuenta?</div>
-          <Link to="/login" className="ml-1 text-sm text-orange-400">Inicia sesión aquí</Link>
+          <Link to="/login" className="ml-1 text-sm text-purple-400">Inicia sesión aquí</Link>
         </div>
       </section>
     </form>

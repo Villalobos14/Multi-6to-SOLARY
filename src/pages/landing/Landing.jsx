@@ -13,7 +13,7 @@ const Landing = () => {
   return (
     <TransitionWrapper>
       <Navbar />
-      <div className=" px-32 pt-20 bg-[url('../background.png')]">
+      <div className="bg-contain  px-32 pt-20 bg-[url('../cover.png')]">
         <HeroSection />
         <FeatureSection />
         <Workflow />
