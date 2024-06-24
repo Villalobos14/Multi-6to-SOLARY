@@ -2,9 +2,10 @@ import * as React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import { ShowAlertAssistance } from '../../assets/assistances/AlertAssistance';
+import Notificacion from '../../components/organismos/Notification';
 import LoginImage from "/cover.png"
 import logo from "../../assets/LogoVenture.png";
+import TransitionWrapper from "./TransitionWrapper";
 
 // Componente para la sección de citas
 function QuoteSection() {
@@ -39,15 +40,29 @@ function RegisterForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [notificaciones, setNotificaciones] = useState([]);
+  const [show, setShow] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !email || !password || !confirmPassword) {
-      return ShowAlertAssistance({ title: "<strong>Campos vacíos</strong>", message: "<strong>MÁS DETALLES:</strong><br>Por favor, rellene todos los campos", status: "error", });
+      setShow(true);
+      setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
+        title: "Campos vacíos",
+        subtitle: "Por favor, rellene todos los campos",
+        icon: false
+      }]);
+      return;
     }
 
     if (password !== confirmPassword) {
-      return ShowAlertAssistance({ title: "<strong>Contraseñas no coinciden</strong>", message: "<strong>MÁS DETALLES:</strong><br>Las contraseñas no coinciden", status: "error", });
+      setShow(true);
+      setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
+        title: "Contraseñas no coinciden",
+        subtitle: "Las contraseñas no coinciden",
+        icon: false
+      }]);
+      return;
     }
 
     try {
@@ -58,9 +73,22 @@ function RegisterForm() {
       });
       const token = response.data.token;
       localStorage.setItem('token', JSON.stringify(token));
-      if (response.data.status === 'success') navigate('/dashboard');
+      if (response.data.status === 'success') {
+        navigate('/dashboard');
+        setShow(true);
+        setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
+          title: "Registro exitoso",
+          subtitle: "Ha sido registrado exitosamente",
+          icon: true
+        }]);
+      }
     } catch (error) {
-      ShowAlertAssistance({ title: "<strong>Ocurrió un error</strong>", message: `<strong>MÁS DETALLES:</strong><br>${error}`, status: "error", });
+      setShow(true);
+      setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
+        title: "Ocurrió un error",
+        subtitle: `${error}`,
+        icon: false
+      }]);
       console.error('Error al enviar la solicitud:', error);
     }
   };
@@ -79,13 +107,25 @@ function RegisterForm() {
         <div className="font-light text-xl ">Venture</div>
       </header>
       {/* Sección principal del formulario */}
-      <section className="flex flex-col items-center justify-center self-stretch px-5 py-10 mt-10 sm:mt-5">
-        <h2 className="mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-white to-white text-transparent bg-clip-text">
+      <section className="flex flex-col items-center justify-center self-stretch px-5   sm:mt-5">
+        <h2 className=" text-6xl font-medium text-center sm: sm:text-6xl bg-gradient-to-r from-white to-white text-transparent bg-clip-text">
           Create Account
         </h2>
         <p className="mt-5 font-light  text-xl text-center text-white">
           Regístrate para comenzar
         </p>
+        {/* Campo de entrada para el nombre */}
+        <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20 ">
+          Serial number
+        </label>
+        <input
+          className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
+          type="text"
+          id="nameInput"
+          placeholder="122JBJVO14"
+          aria-label="122JBJVO14"
+          onChange={(e) => setName(e.target.value)}
+        />
         {/* Campo de entrada para el nombre */}
         <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20 ">
           Name
@@ -94,8 +134,8 @@ function RegisterForm() {
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="text"
           id="nameInput"
-          placeholder="Enter your name"
-          aria-label="Enter your name"
+          placeholder="Alejandro Villalobos"
+          aria-label="Alejandro Villalobos"
           onChange={(e) => setName(e.target.value)}
         />
         {/* Campo de entrada para el correo electrónico */}
@@ -106,8 +146,8 @@ function RegisterForm() {
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="email"
           id="emailInput"
-          placeholder="Enter your email"
-          aria-label="Enter your email"
+          placeholder="Alejandro@mgmail.com"
+          aria-label="Alejandro@mgmail.com"
           onChange={(e) => setEmail(e.target.value)}
         />
         {/* Campo de entrada para la contraseña */}
@@ -118,8 +158,8 @@ function RegisterForm() {
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="password"
           id="passwordInput"
-          placeholder="Enter your password"
-          aria-label="Enter your password"
+          placeholder="*******"
+          aria-label="******"
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* Campo de entrada para confirmar la contraseña */}
@@ -130,8 +170,8 @@ function RegisterForm() {
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="password"
           id="confirmPasswordInput"
-          placeholder="Confirm your password"
-          aria-label="Confirm your password"
+          placeholder="*******"
+          aria-label="*******"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         {/* Botón de registro */}
@@ -147,6 +187,15 @@ function RegisterForm() {
           <Link to="/login" className="ml-1 text-sm text-purple-400">Inicia sesión aquí</Link>
         </div>
       </section>
+      {notificaciones.map((notificacion, index) => (
+        <Notificacion
+          key={index}
+          isActive={show}
+          title={notificacion.title}
+          subtitle={notificacion.subtitle}
+          icon={notificacion.icon}
+        />
+      ))}
     </form>
   );
 }
@@ -154,16 +203,18 @@ function RegisterForm() {
 // Componente principal que junta la sección de citas y el formulario de registro
 function RegisterComponent() {
   return (
-    <div className="flex min-h-screen overflow-hidden flex-col md:flex-row">
-      {/* Contenedor de la sección de citas */}
-      <div className="flex w-full md:w-6/12">
-        <QuoteSection />
+    <TransitionWrapper>
+      <div className="flex min-h-screen overflow-hidden flex-col md:flex-row">
+        {/* Contenedor de la sección de citas */}
+        <div className="flex w-full md:w-6/12">
+          <QuoteSection />
+        </div>
+        {/* Contenedor del formulario de registro */}
+        <div className="flex w-full md:w-6/12">
+          <RegisterForm />
+        </div>
       </div>
-      {/* Contenedor del formulario de registro */}
-      <div className="flex w-full md:w-6/12">
-        <RegisterForm />
-      </div>
-    </div>
+    </TransitionWrapper>
   );
 }
 
