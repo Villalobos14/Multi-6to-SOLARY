@@ -12,10 +12,10 @@ const App = () => {
   return (
     <main className="w-full h-screen flex flex-row relative">
       <Navigation />
-      <section className="flex flex-col p-6 ml-20 w-full gap-5">
+      <section className="flex flex-col p-6 ml-20 w-full gap-4">
         {/* Barra superior fija */}
         <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
-          <h1 className="text-4xl font-light text-neutral-200  bg-clip-text text-transparent bg-white">
+          <h1 className=" text-4xl ml-4 text-neutral-200  bg-clip-text text-transparent bg-white">
             Graficas
           </h1>
           <NavigationLink to="/" name="users">
@@ -28,10 +28,6 @@ const App = () => {
           {/* Div izquierdo para texto */}
           <div className="w-2/6 p-4 flex flex-col ml-10 mt-6"> {/* Div izquierdo contenedor completo*/}
             <div className='p-2'> {/* contenedor individual */}
-              <h2 className="text-xl font-semibold">Contenido de texto</h2>
-              <p>Aquí puedes agregar el texto que desees.</p>
-            </div>
-            <div className='p-2'>
               <h2 className="text-xl font-semibold">Contenido de texto</h2>
               <p>Aquí puedes agregar el texto que desees.</p>
             </div>
