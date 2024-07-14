@@ -1,4 +1,4 @@
-import { Card, ScatterChart } from '@tremor/react';
+import { ScatterChart } from '@tremor/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
@@ -7,11 +7,8 @@ const socket = io(process.env.SOCKET_URL, {
   transports: ['websocket', 'polling', 'flashsocket']
 });
 
-
- function ScatterChartUsageExample() {
-  const [chartData,setChartData]=useState([
-    
-  ])
+function ScatterChartUsageExample() {
+  const [chartData, setChartData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -42,13 +39,19 @@ const socket = io(process.env.SOCKET_URL, {
       setError('Token not found');
     }
 
-    socket.on('data-update', (newData) => {
-      console.log('New Data from Socket:', newData);
-      setChartData((prevData) => [...prevData, ...newData]);
+    socket.on('scatter-plot', (newData) => {
+      newData = JSON.parse(newData);
+      let result = newData.data;
+      setChartData((prevData) => [...prevData, ...result]);
+    });
+
+    socket.on("connect", () => {
+      console.log("connected");
     });
 
     return () => {
-      socket.off('data-update');
+      socket.off('scatter-plot');
+      socket.off("connect");
     };
   }, []);
 
@@ -56,19 +59,20 @@ const socket = io(process.env.SOCKET_URL, {
     return <div>Error: {error}</div>;
   }
 
-
   return (
-    <Card className='bg-transparent'>
-      <p className="text-lg text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">Variacion de la corriente con respecto a luminosidad</p>
-      <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content leading-6">As of 2015. Source: Our World in Data </p>
+    <div className="bg-transparent text-gray-100 sm:mx-auto sm:max-w-2xl">
+      <h3 className="mr-1 font-semibold text-gray-100">Variacion de la corriente con respecto a luminosidad</h3>
+      <p className="text-gray-100">As of 2015. Source: Our World in Data</p>
       <ScatterChart
-        className="-ml-2 mt-6 h-80"
+        className="mt-6 h-80"
         yAxisWidth={50}
-        data={chartData}
-        category="Country"
+        data={chartData.map((d) => ({
+          x: d.x,
+          y: d.y,
+          frequency: d.frequency,
+        }))}
         x="x"
         y="y"
-        
         showOpacity={true}
         minYValue={60}
         valueFormatter={{
@@ -79,7 +83,8 @@ const socket = io(process.env.SOCKET_URL, {
         enableLegendSlider
         showLegend={false}
       />
-    </Card>
+    </div>
   );
 }
-export default ScatterChartUsageExample
+
+export default ScatterChartUsageExample;

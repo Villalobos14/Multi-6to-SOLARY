@@ -7,8 +7,77 @@ import NavigationLink from "./NavigationLink"
 import {
   UsersIcon,
 } from "@heroicons/react/24/outline"
+import BoxPlotExample from '../../components/organismos/CardStats';
+import LineGraphic from '../../components/organismos/CardStats';
+import LineChartExample from '../../components/organismos/CardStats';
+import io from 'socket.io-client';
 
+const socket = io(process.env.SOCKET_URL,{
+  transports: ['websocket', 'polling', 'flashsocket']
+  
+});
+function valueFormatter(number) {
+  return number.toFixed(2);
+}
 const App = () => {
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    const storedToken = sessionStorage.getItem('token');
+    if (storedToken) {
+      getData(storedToken);
+    } else {
+      console.error('Token not found');
+    }
+    socket.on('connect', () => {
+      console.log('Connected to socket server');
+    });
+    socket.on("meditions",(message)=>{
+      const result=JSON.parse(message)
+      const {median, mode, mean, std}=result.data["sensor de voltaje Ac Zmpt101b"]
+      handleupdate(median,mode,mean,std)
+
+
+    })
+    return () => {
+      socket.off('connect');
+      socket.off("meditions")
+   
+    };
+     
+  },[])
+  const getData=async(token)=>{
+    try{
+      const res = await axios.get(`${process.env.API}api/statistics/metricts`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      
+     const {median, mode, mean, std}=res.data.data["sensor de voltaje Ac Zmpt101b"]
+     handleupdate(median,mode,mean,std)
+
+    
+
+
+
+    }catch(e){
+      console.log(e.message);
+    }
+
+  }
+  const handleupdate=(median, mode, mean, std)=>{
+    let datainfo=[
+      {name:"mediana",stat:valueFormatter(median)},
+      {name:"moda",stat:valueFormatter(mode)},
+      {name:"media",stat:valueFormatter(mean)},
+      // {name:"Desviacion estandar",stat:valueFormatter(std)}
+
+
+    ]
+    setData(datainfo)
+
+   
+  }
   return (
     <main className="w-full h-screen flex flex-row relative">
       <Navigation />
@@ -60,7 +129,7 @@ const App = () => {
           {/* Div derecho para CardStats */}
           <div className="w-4/6 p-4  flex justify-center items-center">
             <div className="w-4/5 ">
-              <CardStats className="h-full p-4 " />
+              <LineChartExample className="h-full p-4 " />
             </div>
           </div>
         </div>
