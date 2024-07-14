@@ -19,7 +19,7 @@ const App = () => {
 
         <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
           <h1 className="text-4xl ml-4 text-neutral-200  bg-clip-text text-transparent bg-white">
-            Estadísticaaaa
+            Estadística
           </h1>
           <NavigationLink className="text-white" to="/" name="Users">
             <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />

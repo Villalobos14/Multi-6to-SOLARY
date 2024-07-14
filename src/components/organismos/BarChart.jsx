@@ -1,5 +1,6 @@
 import { BarChart, Card, Divider, Switch } from '@tremor/react';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const data = [
   {
@@ -78,6 +79,40 @@ function valueFormatter(number) {
 
 export default function Example() {
   const [showComparison, setShowComparison] = useState(false);
+  const [resppnse,setResponse]=useState([])
+
+  useEffect(()=>{
+    const storedToken =  sessionStorage.getItem('token');
+    console.log(storedToken)
+    axios.get(process.env.API+"api/graphics/histogram?typeSensorId=1",{
+      headers:{
+        Authorization:storedToken,
+      }
+    }).then(res=>console.log(res.data))
+    
+   
+    
+    
+
+
+  },[])
+  const getDatos=async(token)=>{
+    try{
+       axios.get(process.env.API+"api/graphics/histogram?typeSensorId=1",{
+        headers:{
+
+          Authorization:`${token}`
+        }
+      })
+      console.log(res.data)
+
+    }catch(e){
+      console.log(e.message)
+
+    }
+  }
+
+  
   return (
     <>
       <div 

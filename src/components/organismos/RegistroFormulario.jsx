@@ -41,11 +41,12 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [notificaciones, setNotificaciones] = useState([]);
+  const [serialNumber,setSerialNumber]=useState('')
   const [show, setShow] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword || !serialNumber) {
       setShow(true);
       setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
         title: "Campos vacíos",
@@ -66,15 +67,16 @@ function RegisterForm() {
     }
 
     try {
-      const response = await axios.post('', {
-        "name": name,
-        "email": email,
-        "password": password,
+      const response = await axios.post(process.env.API+"api/auth/signup", {
+        "name":name,
+        "email":email,
+        "password":password,
+        "codigoproducto":serialNumber
       });
-      const token = response.data.token;
-      localStorage.setItem('token', JSON.stringify(token));
-      if (response.data.status === 'success') {
-        navigate('/dashboard');
+      
+      
+      if (response.data.success) {
+        navigate('/login');
         setShow(true);
         setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
           title: "Registro exitoso",
@@ -124,7 +126,7 @@ function RegisterForm() {
           id="nameInput"
           placeholder="122JBJVO14"
           aria-label="122JBJVO14"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setSerialNumber(e.target.value)}
         />
         {/* Campo de entrada para el nombre */}
         <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20 ">

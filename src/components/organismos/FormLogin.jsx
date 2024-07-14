@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import { ShowAlertAssistance } from '../../assets/assistances/AlertAssistance';
 import LoginImage from "/cover.png"
 import logo from "../../assets/LogoVenture.png";
 import TransitionWrapper from "./TransitionWrapper";
@@ -10,6 +9,8 @@ import Notificacion from '../../components/organismos/Notification';
 
 // Componente para la sección de citas
 function QuoteSection() {
+  console.log(process.env.API); // Salida: 'https://api.miproyecto.com'
+
   return (
     <section className="relative flex flex-col items-start justify-center min-h-screen w-full overflow-hidden">
       <img
@@ -54,14 +55,14 @@ function LoginForm() {
     }
 
     try {
-      const response = await axios.post('', {
+      const response = await axios.post(process.env.API+"api/auth/login", {
         "email": email,
         "password": password,
       });
       const token = response.data.token;
-      if (remember) localStorage.setItem('token', JSON.stringify(token));
-      else sessionStorage.setItem('token', JSON.stringify(token));
-      if (response.data.status === 'success') {
+      if (remember) localStorage.setItem('token', token);
+      else sessionStorage.setItem('token', token);
+      if (response.data.success) {
         navigate('/dashboard');
         setShow(true);
         setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
