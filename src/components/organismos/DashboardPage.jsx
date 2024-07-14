@@ -3,6 +3,7 @@ import Navigation from "../../components/organismos/Navigation"
 import CardStats from "../../components/organismos/CardStats"
 import BarChart from "../../components/organismos/BarChart"
 import KpiCard from "../../components/organismos/KpiCard"
+import ScatterChart from "../../components/organismos/ScatterChart"
 import NavigationLink from "./NavigationLink"
 
 
@@ -31,7 +32,7 @@ const App = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-[#4e4d4d] rounded-xl px-5 pb-10  bg-[#15111d] "> {/* Contenedor de la cuadrícula */}
           <div className="md:col-span-1 h-48 "> {/* Primer columna de la cuadrícula */}
             <div> {/* Espacio entre los componentes */}
-              <CardStats className="w-1/2" /> 
+              <ScatterChart className="w-1/2" /> 
             </div>
           </div>
           <div className="md:col-span-1 pt-16 pb-6 px-2"> {/* Segunda columna de la cuadrícula */}
