@@ -1,13 +1,23 @@
-import { ScatterChart } from '@tremor/react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ScatterChart } from '@mui/x-charts/ScatterChart';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { io } from 'socket.io-client';
+import axios from 'axios';
+
+const colorBanco = '#f2f2f2'; // Color blanco
+const theme = createTheme({
+  palette: {
+    text: {
+      primary: colorBanco,
+    },
+  },
+});
 
 const socket = io(process.env.SOCKET_URL, {
   transports: ['websocket', 'polling', 'flashsocket']
 });
 
-function ScatterChartUsageExample() {
+const ScatterChartExample = () => {
   const [chartData, setChartData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -21,7 +31,6 @@ function ScatterChartUsageExample() {
         });
         console.log('Fetched Data:', response.data.data);
         setChartData(response.data.data);
-       
       } catch (err) {
         console.error('Error fetching data', err);
         setError('Error fetching data');
@@ -57,31 +66,21 @@ function ScatterChartUsageExample() {
   }
 
   return (
-    <div className="bg-transparent text-gray-100 sm:mx-auto sm:max-w-2xl">
-      <h3 className="mr-1 font-semibold text-gray-100">Variacion de la corriente con respecto a luminosidad</h3>
-      <p className="text-gray-100">As of 2015. Source: Our World in Data</p>
+    <ThemeProvider theme={theme}>
       <ScatterChart
-        className="mt-6 h-80"
-        yAxisWidth={50}
-        data={chartData.map((d) => ({
-          x: d.x,
-          y: d.y,
-          frequency: d.frequency,
-        }))}
-        x="x"
-        y="y"
-        showOpacity={true}
-        minYValue={60}
-        valueFormatter={{
-          x: (value) => `${value}`,
-          y: (value) => `${value}`,
-          size: (frequency) => `${frequency} occurrences`,
-        }}
-        enableLegendSlider
-        showLegend={false}
+        width={600}
+        height={300}
+        series={[
+          {
+            label: 'Dispersion respecto voltaje',
+            data: chartData.map((point, index) => ({ x: point.x, y: point.y, id: `data-${index}` })),
+          },
+          // Añadir más series según sea necesario
+        ]}
+        grid={{ vertical: true, horizontal: true }}
       />
-    </div>
+    </ThemeProvider>
   );
-}
+};
 
-export default ScatterChartUsageExample;
+export default ScatterChartExample;
