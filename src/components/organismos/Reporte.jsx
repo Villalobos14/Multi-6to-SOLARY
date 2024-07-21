@@ -44,7 +44,7 @@ const App = () => {
       ]);
 
       const alldata = [
-        { name: "Humedad", data: responses[0].data.data },
+        { name: "Voltaje", data: responses[0].data.data },
         { name: "Temperatura", data: responses[1].data.data },
         { name: "Luz", data: responses[2].data.data },
         { name: "Corriente", data: responses[3].data.data }
@@ -89,7 +89,7 @@ const App = () => {
       <Navigation />
       <section className="flex flex-col p-6 ml-20 w-full gap-4">
         <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
-          <h1 className="text-4xl ml-4 text-neutral-200 bg-clip-text text-transparent bg-white">
+          <h1 className="text-4xl ml-8 text-neutral-200 bg-clip-text text-transparent bg-white">
             PROBABILIDADES
           </h1>
           <button onClick={handleUserIconClick} className="text-white pr-3">

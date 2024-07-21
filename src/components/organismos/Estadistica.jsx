@@ -47,7 +47,7 @@ const App = () => {
       <section className="flex flex-col w-full p-6 ml-20 gap-4">
         <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
           <h1 className="text-4xl ml-4 text-neutral-200 bg-clip-text text-transparent bg-white">
-            Estadística
+            ESTADISTICAS VOLTAJE
           </h1>
           <button onClick={handleUserIconClick} className="text-white pr-3">
             <Badge color="secondary" badgeContent={data}>
@@ -60,10 +60,10 @@ const App = () => {
 
           <div className="flex flex-col w-1/2 h-full ">
             <div className="border h-full rounded-xl px-5 py-4 bg-[#1e1b2a] flex flex-col items-center">
-              <span className="text-white text-2xl font-semibold mb-2">TU PANEL SOLAR</span>
-              <img src="panel.png" alt="Panel Solar" className="w-1/2 rounded-xl mb-2" />
+              <span className="text-white text-2xl font-ligth mb-2">TU PANEL SOLAR</span>
+              <img src="panel.png" alt="Panel Solar" className="w-1/2 rounded-xl mb-2 mt-12" />
               <div className="flex flex-col gap-2 w-full">
-                <div className='py-4 bg-gray-800  rounded-lg mt-5 px-6'>
+                <div className='py-4 bg-gray-800  rounded-lg mt-10 px-6'>
                   <h2 className="text-xl font-semibold text-white">Cuidado y Funcionamiento</h2>
                   <p className="text-gray-300">Para asegurar un rendimiento óptimo del panel solar, mantenlo limpio y libre de obstrucciones. Verifica periódicamente las conexiones y el estado general del sistema.</p>
                 </div>
