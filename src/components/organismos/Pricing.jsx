@@ -7,7 +7,7 @@ const Pricing = () => {
   return (
     <div className="mt-20" id="keys">
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-8 tracking-wide bg-gradient-to-r from-blue-600 to-[#df40eb] text-transparent bg-clip-text">
-        Proyect Keys
+        Puntos clave
       </h2>
       <div className="flex flex-wrap">
         {pricingOptions.map((option, index) => (

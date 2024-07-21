@@ -14,166 +14,171 @@ import user6 from "../assets/profile-pictures/user6.jpg";
 
 
 export const navItems = [
-  { label: "Features", href: "features" },
-  { label: "Workflow", href: "workflow" },
-  { label: "Keys", href: "keys" },
-  { label: "Testimonials", href: "testimonials" },
+  { label: "Caracteristicas", href: "features" },
+  { label: "Funcionamiento", href: "workflow" },
+  { label: "Pros", href: "keys" },
+  { label: "Testimonios", href: "testimonials" },
 ];
 
 export const testimonials = [
-  {
-    user: "John Doe",
-    company: "Stellar Solutions",
-    image: user1,
-    text: "I am extremely satisfied with the services provided. The team was responsive, professional, and delivered results beyond my expectations.",
-  },
-  {
-    user: "Jane Smith",
-    company: "Blue Horizon Technologies",
-    image: user2,
-    text: "I couldn't be happier with the outcome of our project. The team's creativity and problem-solving skills were instrumental in bringing our vision to life",
-  },
-  {
-    user: "David Johnson",
-    company: "Quantum Innovations",
-    image: user3,
-    text: "Working with this company was a pleasure. Their attention to detail and commitment to excellence are commendable. I would highly recommend them to anyone looking for top-notch service.",
-  },
-  {
-    user: "Ronee Brown",
-    company: "Fusion Dynamics",
-    image: user4,
-    text: "Working with the team at Venture Company was a game-changer for our project. Their attention to detail and innovative solutions helped us achieve our goals faster than we thought possible. We are grateful for their expertise and professionalism!",
-  },
-  {
-    user: "Michael Wilson",
-    company: "Visionary Creations",
-    image: user5,
-    text: "I am amazed by the level of professionalism and dedication shown by the team. They were able to exceed our expectations and deliver outstanding results.",
-  },
-  {
-    user: "Emily Davis",
-    company: "Synergy Systems",
-    image: user6,
-    text: "The team went above and beyond to ensure our project was a success. Their expertise and dedication are unmatched. I look forward to working with them again in the future.",
-  },
-];
+  
+    {
+      user: "Juan Pérez",
+      company: "Soluciones Estelares",
+      image: user1,
+      text: "Estoy muy satisfecho con el sistema de monitoreo solar. El equipo fue muy atento, profesional y los resultados superaron nuestras expectativas.",
+    },
+    {
+      user: "Ana Martínez",
+      company: "Horizonte Azul Tecnologías",
+      image: user2,
+      text: "No podría estar más contenta con el desempeño del sistema. La capacidad de obtener estadísticas y datos en tiempo real ha sido fundamental para optimizar nuestra inversión solar.",
+    },
+    {
+      user: "David López",
+      company: "Innovaciones Quantum",
+      image: user3,
+      text: "Trabajar con este sistema de monitoreo ha sido una excelente experiencia. Su precisión y fiabilidad en el análisis de datos son destacables. Lo recomendaría a cualquiera que busque mejorar el rendimiento de sus paneles solares.",
+    },
+    {
+      user: "Rocío Gómez",
+      company: "Dinámicas Fusión",
+      image: user4,
+      text: "El uso del sistema de monitoreo solar ha transformado la gestión de nuestra energía. La capacidad de obtener informes detallados y en tiempo real nos ha permitido ajustar nuestra estrategia de manera efectiva. ¡Estamos muy agradecidos por esta herramienta!",
+    },
+    {
+      user: "Miguel Rodríguez",
+      company: "Creaciones Visionarias",
+      image: user5,
+      text: "Estoy impresionado con la precisión y el nivel de detalle del sistema. Ha superado nuestras expectativas en cuanto a la monitorización y el análisis de nuestro sistema solar.",
+    },
+    {
+      user: "Emily Díaz",
+      company: "Sistemas Sinergia",
+      image: user6,
+      text: "El sistema de monitoreo ha sido clave para el éxito de nuestra instalación solar. Su capacidad para ofrecer datos en tiempo real y análisis detallado es invaluable. Espero seguir utilizándolo para futuros proyectos.",
+    },
+  ];
+  
 
-export const features = [
-  {
-    icon: <BotMessageSquare />,
-    text: "Drag-and-Drop Interface",
-    description:
-      "Easily design and arrange your System environments with a user-friendly drag-and-drop interface.",
-  },
-  {
-    icon: <Fingerprint />,
-    text: "Historical Analysis",
-    description:
-      "Analyze historical data to identify trends, patterns, and recurring issues for informed decision-making and system optimization.",
-  },
-  {
-    icon: <ShieldHalf />,
-    text: "Energy Performance Analysis",
-    description:
-      "Perform in-depth analysis of energy production and system performance to maximize efficiency and ROI over time.",
-  },
-  {
-    icon: <BatteryCharging />,
-    text: "Real-time Monitoring",
-    description:
-      "Continuously monitor voltage, current, luminosity, and temperature data from solar panels in real-time.",
-  },
-  {
-    icon: <PlugZap />,
-    text: "Anomaly Detection",
-    description:
-      "Utilize advanced algorithms to detect anomalies and deviations in performance metrics, enabling proactive maintenance.",
-  },
-  {
-    icon: <GlobeLock />,
-    text: "Analytics Dashboard",
-    description:
-      "Provide a user-friendly dashboard interface for easy visualization of key performance metrics, alerts, and maintenance insights.",
-  },
-];
+  export const features = [
+    {
+      icon: <BotMessageSquare />,
+      text: "Interfaz de Arrastrar y Soltar",
+      description:
+        "Diseña y organiza fácilmente tus entornos del sistema con una interfaz de arrastrar y soltar amigable para el usuario.",
+    },
+    {
+      icon: <Fingerprint />,
+      text: "Análisis Histórico",
+      description:
+        "Analiza datos históricos para identificar tendencias, patrones y problemas recurrentes, lo que permite una toma de decisiones informada y optimización del sistema.",
+    },
+    {
+      icon: <ShieldHalf />,
+      text: "Análisis del Rendimiento Energético",
+      description:
+        "Realiza un análisis profundo de la producción de energía y el rendimiento del sistema para maximizar la eficiencia y el retorno de inversión a lo largo del tiempo.",
+    },
+    {
+      icon: <BatteryCharging />,
+      text: "Monitoreo en Tiempo Real",
+      description:
+        "Monitorea continuamente los datos de voltaje, corriente, luminosidad y temperatura de los paneles solares en tiempo real.",
+    },
+    {
+      icon: <PlugZap />,
+      text: "Detección de Anomalías",
+      description:
+        "Utiliza algoritmos avanzados para detectar anomalías y desviaciones en los indicadores de rendimiento, lo que permite un mantenimiento proactivo.",
+    },
+    {
+      icon: <GlobeLock />,
+      text: "Panel de Análisis",
+      description:
+        "Ofrece una interfaz de panel de control amigable para el usuario, facilitando la visualización de métricas clave de rendimiento, alertas e información de mantenimiento.",
+    },
+  ];
+  
 
-export const checklistItems = [
-  {
-    title: "Optimized Performance",
-    description:
-      "Code optimized for efficiency in data processing and delvelopment of information",
-  },
-  {
-    title: "Review code without worry",
-    description:
-      "Track the performance of your system apps and gain insights into user behavior.",
-  },
-  {
-    title: "Adherence to Best Practices",
-    description:
-      "Coding standards followed for consistency and readability for clean architecture",
-  },
-  {
-    title: "Modular Design",
-    description:
-      "Code structured for easy maintenance and expansion performing the process",
-  },
-];
+  export const checklistItems = [
+    {
+      title: "Rendimiento Optimizado",
+      description:
+        "Código optimizado para la eficiencia en el procesamiento de datos y desarrollo de información.",
+    },
+    {
+      title: "Revisa el código sin preocupaciones",
+      description:
+        "Sigue el rendimiento de tus aplicaciones del sistema y obtén información sobre el comportamiento del usuario.",
+    },
+    {
+      title: "Cumplimiento de Mejores Prácticas",
+      description:
+        "Estándares de codificación seguidos para garantizar consistencia y legibilidad en una arquitectura limpia.",
+    },
+    {
+      title: "Diseño Modular",
+      description:
+        "Código estructurado para un fácil mantenimiento y expansión durante el proceso.",
+    },
+  ];
+  
 
-export const pricingOptions = [
-  {
-    title: "Innovating",
-    price: "100%",
-    features: [
-      "Algorithms",
-      "Predictive",
-      "Analytics",
-      "Detection",
-    ],
-  },
-  {
-    title: "Accesibility",
-    price: "100%",
-    features: [
-      "Integration",
-      "Useful",
-      "Intuituve",
-      "Accesible",
-    ],
-  },
-  {
-    title: "Impact",
-    price: "100%",
-    features: [
-      "Sustainability",
-      "Efficiency",
-      "Renewable energy",
-      "Conscience",
-    ],
-  },
-];
-
-export const resourcesLinks = [
-  { href: "#", text: "Getting Started" },
-  { href: "#", text: "Documentation" },
-  { href: "#", text: "Tutorials" },
-  { href: "#", text: "API Reference" },
-  { href: "#", text: "Community Forums" },
-];
-
-export const platformLinks = [
-  { href: "#", text: "Features" },
-  { href: "#", text: "Supported Devices" },
-  { href: "#", text: "System Requirements" },
-  { href: "#", text: "Downloads" },
-  { href: "#", text: "Release Notes" },
-];
-
-export const communityLinks = [
-  { href: "#", text: "Events" },
-  { href: "#", text: "Meetups" },
-  { href: "#", text: "Conferences" },
-  { href: "#", text: "" },
-  { href: "#", text: "" },
-];
+  export const pricingOptions = [
+    {
+      title: "Innovación",
+      price: "100%",
+      features: [
+        "Algoritmos",
+        "Predictivo",
+        "Analítica",
+        "Detección",
+      ],
+    },
+    {
+      title: "Accesibilidad",
+      price: "100%",
+      features: [
+        "Integración",
+        "Útil",
+        "Intuitivo",
+        "Accesible",
+      ],
+    },
+    {
+      title: "Impacto",
+      price: "100%",
+      features: [
+        "Sostenibilidad",
+        "Eficiencia",
+        "Energía renovable",
+        "Conciencia",
+      ],
+    },
+  ];
+  
+  export const resourcesLinks = [
+    { href: "#", text: "Empezando" },
+    { href: "#", text: "Documentación" },
+    { href: "#", text: "Tutoriales" },
+    { href: "#", text: "Referencia de API" },
+    { href: "#", text: "Foros de la Comunidad" },
+  ];
+  
+  export const platformLinks = [
+    { href: "#", text: "Características" },
+    { href: "#", text: "Dispositivos Compatibles" },
+    { href: "#", text: "Requisitos del Sistema" },
+    { href: "#", text: "Descargas" },
+    { href: "#", text: "Notas de la Versión" },
+  ];
+  
+  export const communityLinks = [
+    { href: "#", text: "Eventos" },
+    { href: "#", text: "Reuniones" },
+    { href: "#", text: "Conferencias" },
+    { href: "#", text: "" },
+    { href: "#", text: "" },
+  ];
+  

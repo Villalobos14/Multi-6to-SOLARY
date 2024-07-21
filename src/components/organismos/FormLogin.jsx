@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import LoginImage from "/cover.png"
+import LoginImage from "/cover.png";
 import logo from "../../assets/LogoVenture.png";
 import TransitionWrapper from "./TransitionWrapper";
 import Notificacion from '../../components/organismos/Notification';
@@ -20,13 +20,16 @@ function QuoteSection() {
       />
       <div className="relative z-10 sm:px-5 mt-80">
         <h2 className="pl-2 text-xs font-bold tracking-widest leading-3 text-white text-opacity-100">
-          A WISE QUOTE
+          SUPERVISA AL INSTANTE
         </h2>
         <h1 className="text-8xl font-medium leading-3 text-white mt-[508px] sm:mt-10 sm:text-8xl">
-          Get in to it
+          TU ENERGÍA 
         </h1>
+        <h2 className="text-6xl font-medium ml-3">
+          TU CONTROL
+          </h2>
         <p className="mt-14 ml-2.5 text-sm leading-5 text-white text-opacity-90 w-[263px] sm:mt-10">
-          You can get everything you want if you work hard, trust the process, and stick to the plan.
+        controla el rendimiento de tus paneles en tiempo real y optimiza su eficiencia con facilidad. Tu energía está en tus manos.
         </p>
       </div>
     </section>
@@ -55,7 +58,7 @@ function LoginForm() {
     }
 
     try {
-      const response = await axios.post(process.env.API+"api/auth/login", {
+      const response = await axios.post(process.env.API + "api/auth/login", {
         "email": email,
         "password": password,
       });
@@ -66,8 +69,8 @@ function LoginForm() {
         navigate('/dashboard');
         setShow(true);
         setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
-          title: "Login exitoso",
-          subtitle: "Ha ingresado correctamente",
+          title: "Inicio de sesión exitoso",
+          subtitle: "Has ingresado correctamente",
           icon: true
         }]);
       }
@@ -89,39 +92,39 @@ function LoginForm() {
           <Link to="/">
             <img
               src={logo}
-              alt="login"
+              alt="logo"
               className="shrink-0 w-4 border-0 aspect-square mr-2 mt-1"
             />
           </Link>
-          <div className="font-light text-xl pb-2">Venture</div>
+          <div className="font-light text-xl pb-2">Solary</div>
         </header>
-        <section className="flex flex-col items-center  self-stretch px-5 py-5 mt-10 sm:mt-5">
-          <h2 className=" pt-10 pb-5 mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-[#fefefe] to-white text-transparent bg-clip-text">
-            Welcome back
+        <section className="flex flex-col items-center self-stretch px-5 py-5 mt-10 sm:mt-5">
+          <h2 className="pt-10 pb-5 mt-14 text-6xl font-medium text-center sm:mt-10 sm:text-6xl bg-gradient-to-r from-[#fefefe] to-white text-transparent bg-clip-text">
+            Bienvenido de nuevo
           </h2>
-          <p className="mt-5 font-light  text-xl text-center text-white pb-10 ">
+          <p className="mt-5 font-light text-xl text-center text-white pb-10 ">
             Inicia sesión para poder ingresar
           </p>
           <label htmlFor="emailInput" className="w-full pl-20 mt-5 text-base">
-            Email
+            Correo electrónico
           </label>
           <input
-            className="mt-1 px-3 py-2 rounded-md bg-slate-100 border-none text-base text-white w-3/4 bg-opacity-15  "
+            className="mt-1 px-3 py-2 rounded-md bg-slate-100 border-none text-base text-white w-3/4 bg-opacity-15"
             type="email"
             id="emailInput"
-            placeholder="Enter your email"
-            aria-label="Enter your email"
+            placeholder="Introduce tu correo electrónico"
+            aria-label="Introduce tu correo electrónico"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="passwordInput" className=" w-full pl-20 self-start mt-5 text-base">
-            Password
+          <label htmlFor="passwordInput" className="w-full pl-20 self-start mt-5 text-base">
+            Contraseña
           </label>
           <input
-            className="mt-1 px-3 py-2 rounded-md bg-slate-100 border-none text-base text-white w-3/4 bg-opacity-15  "
+            className="mt-1 px-3 py-2 rounded-md bg-slate-100 border-none text-base text-white w-3/4 bg-opacity-15"
             type="password"
             id="passwordInput"
-            placeholder="Enter your password"
-            aria-label="Enter your password"
+            placeholder="Introduce tu contraseña"
+            aria-label="Introduce tu contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="justify-items-start flex justify-start w-3/4 ">
@@ -130,18 +133,18 @@ function LoginForm() {
                 type="checkbox"
                 checked={remember}
                 onChange={() => setRemember(prevState => !prevState)}
-                className="cursor-pointer  "
+                className="cursor-pointer"
               />
-              <label htmlFor="rememberMe" className="ml-2 cursor-pointer" onClick={() => setRemember(prevState => !prevState)}>Remember me</label>
+              <label htmlFor="rememberMe" className="ml-2 cursor-pointer" onClick={() => setRemember(prevState => !prevState)}>Recuérdame</label>
             </div>
           </div>
           <button
-            className="mt-6 px-3 py-2  rounded-md bg-white text-black text-base w-3/4"
+            className="mt-6 px-3 py-2 rounded-md bg-white text-black text-base w-3/4"
             type="submit"
           >
-            Log in
+            Iniciar sesión
           </button>
-          <div className="flex mt-5 ">
+          <div className="flex mt-5">
             <div className="text-sm">¿No tienes una cuenta?</div>
             <Link to="/register" className="ml-1 text-sm text-purple-400">Regístrate aquí</Link>
           </div>

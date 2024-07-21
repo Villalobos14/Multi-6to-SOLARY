@@ -63,14 +63,14 @@ const App = () => {
 
           <div className="flex flex-col w-1/2 h-full">
             <div className="border h-full rounded-xl p-3 bg-[#1e1b2a] flex flex-col items-center">
-              <span className="text-white text-4xl font-semibold mb-2">TU PANEL SOLAR</span>
+              <span className="text-white text-2xl font-semibold mb-2">TU PANEL SOLAR</span>
               <img src="panel.png" alt="Random" className="w-1/2 rounded-xl mb-2" />
               <div className="flex flex-col gap-2 w-full">
-                <div className='p-2 bg-[#29562c]'>
-                  <h2 className="text-xl font-semibold">Metricas</h2>
+                <div className='p-2 bg-[#29562c] border rounded-lg'>
+                  <h2 className="text-xl font-semibold ">Metricas</h2>
                   <p>Sobre el funcionamiento de la corriente</p>
                 </div>
-                <div className='p-2 bg-[#117219]'>
+                <div className='p-2 bg-[#117219] border rounded-md'>
                   <h2 className="text-xl font-semibold">Mediana</h2>
                   <p></p>
                 </div>

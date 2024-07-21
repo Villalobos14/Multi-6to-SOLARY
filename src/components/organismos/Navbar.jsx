@@ -34,13 +34,13 @@ const Navbar = () => {
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
             <Link to="/login" className="py-2 px-3 border rounded-md bg-white bg-opacity-10 backdrop-blur">
-              Sign In
+              Iniciar sesión
             </Link>
             <Link
               to="/register"
               className="bg-[#52288e] py-2 px-3 rounded-md"
             >
-              Create an account
+              Crear una cuenta
             </Link>
           </div>
           <div className="lg:hidden md:flex flex-col justify-end">

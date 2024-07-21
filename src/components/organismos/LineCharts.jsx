@@ -1,103 +1,125 @@
-import React, { useEffect, useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
+// src/components/organismos/BarChart.jsx
+import { BarChart, Divider, Switch } from '@tremor/react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import io from 'socket.io-client';
+import { CircularProgress, Box } from '@mui/material';
 
-const BoxplotChart = () => {
-  const [series, setSeries] = useState([]);
-  const [options, setOptions] = useState({
-    chart: {
-      type: 'boxPlot',
-      height: 350
-    },
-    title: {
-      text: 'BoxPlot Chart',
-      align: 'left'
-    },
-    xaxis: {
-      categories: []
-    },
-    plotOptions: {
-      boxPlot: {
-        colors: {
-          upper: '#5C4742',
-          lower: '#A5978B'
-        }
-      }
-    }
-  });
+const socket = io(process.env.SOCKET_URL, {
+  transports: ['websocket', 'polling', 'flashsocket']
+});
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(process.env.API + 'api/graphics/boxplot', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': sessionStorage.getItem('token')
-        }
-      });
-      const result = await response.json();
-    
-      if (result.success) {
-        const labels = result.data.labels;
-        const datasets = result.data.datasets;
+// Formateador de valores para mostrar en el gráfico
+function valueFormatter(number) {
+  return number.toFixed(2);
+}
 
-        const dataSeries = datasets.map(dataset => {
-          const boxPlotData = calculateBoxPlotData(dataset.data);
-          return {
-            x: dataset.label,
-            y: boxPlotData
-          };
-        });
-
-        setSeries([{
-          name: 'BoxPlot',
-          data: dataSeries
-        }]);
-
-        setOptions(prevOptions => ({
-          ...prevOptions,
-          xaxis: {
-            categories: labels
-          }
-        }));
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  const calculateBoxPlotData = (data) => {
-    if (!Array.isArray(data) || data.length === 0) {
-      return [0, 0, 0, 0, 0];
-    }
-    
-    data.sort((a, b) => a - b);
-    const min = Math.min(...data);
-    const max = Math.max(...data);
-    const q1 = percentile(data, 25);
-    const median = percentile(data, 50);
-    const q3 = percentile(data, 75);
-    return [min, q1, median, q3, max];
-  };
-
-  const percentile = (arr, p) => {
-    const index = (p / 100) * (arr.length - 1);
-    const lower = Math.floor(index);
-    const upper = Math.ceil(index);
-    const weight = index % 1;
-    return arr[lower] * (1 - weight) + arr[upper] * weight;
-  };
+export default function Example(props) {
+  const [showComparison, setShowComparison] = useState(false);
+  const [data, setData] = useState([]);
+  const [nameSensor, setNameSensor] = useState('');
+  const [loading, setLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
-    fetchData();
-    const interval = setInterval(() => fetchData(), 300000); // Actualizar cada 5 minutos
-    return () => clearInterval(interval);
+    const storedToken = sessionStorage.getItem('token');
+    if (storedToken) {
+      getDatos(storedToken);
+    } else {
+      console.error('Token not found');
+      setLoading(false); // Cambia el estado incluso si el token no se encuentra
+    }
+
+    socket.on('connect', () => {
+      // Puedes manejar la conexión si es necesario
+    });
+
+    socket.on('histogram', (newData) => {
+      handleNewData(JSON.parse(newData));
+      setLoading(false); // Actualiza el estado de carga con nuevos datos
+    });
+
+    return () => {
+      socket.off('connect');
+      socket.off('histogram');
+    };
   }, []);
 
+  const getDatos = async (token) => {
+    try {
+      const res = await axios.get(`${process.env.API}api/graphics/histogram?typeSensorId=2`, {
+        headers: {
+          Authorization: token,
+        },
+      });
+
+      const { data, label, nameSensor } = res.data;
+      const formattedData = label.map((label, index) => ({
+        date: label.toFixed(2),
+        value: data[index],
+      }));
+
+      setData(formattedData);
+      setNameSensor(nameSensor);
+      setLoading(false); // Datos cargados, cambia el estado
+    } catch (e) {
+      console.error('API call failed:', e.response ? e.response.data : e.message);
+      setLoading(false); // Cambia el estado incluso si ocurre un error
+    }
+  };
+
+  const handleNewData = (newData) => {
+    const { data, label } = newData;
+    const formattedData = label.map((label, index) => ({
+      date: label.toFixed(2),
+      value: data[index],
+    }));
+
+    setData(formattedData);
+  };
+
   return (
-    <div id="chart">
-      <ReactApexChart  options={options} series={series} type="boxPlot" height={350} />
+    <div className="bg-transparent text-gray-100 sm:mx-auto sm:max-w-2xl">
+      <h3 className="mr-1 font-semibold text-gray-100">{nameSensor}</h3>
+      <p className="text-gray-100">Data overview for the selected sensor.</p>
+      {loading ? (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height={300}
+          width={600}
+        >
+          <CircularProgress size={100} color="inherit" />
+        </Box>
+      ) : (
+        <>
+          <BarChart
+            data={data}
+            index="date"
+            categories={['value']}
+            colors={['blue']}
+            valueFormatter={valueFormatter}
+            yAxisWidth={45}
+            className="mt-6 hidden h-60 sm:block"
+          />
+          <BarChart
+            data={data}
+            index="date"
+            categories={['value']}
+            colors={['blue']}
+            valueFormatter={valueFormatter}
+            showYAxis={false}
+            className="mt-4 h-56 sm:hidden"
+          />
+        </>
+      )}
+      <Divider />
+      <div className="mb-2 flex items-center space-x-3">
+        <Switch id="comparison" onChange={() => setShowComparison(!showComparison)} />
+        <label htmlFor="comparison" className="text-white">
+          Show comparison
+        </label>
+      </div>
     </div>
   );
-};
-
-export default BoxplotChart;
+}

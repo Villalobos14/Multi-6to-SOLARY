@@ -1,8 +1,9 @@
 'use client';
-import { Card } from '@tremor/react';
+import { Card, Title } from '@tremor/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import { Skeleton } from '@mui/material';
 
 const socket = io(process.env.SOCKET_URL, {
   transports: ['websocket', 'polling', 'flashsocket']
@@ -18,6 +19,7 @@ function classNames(...classes) {
 
 export default function Example() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
     const storedToken = sessionStorage.getItem('token');
@@ -25,6 +27,7 @@ export default function Example() {
       getData(storedToken);
     } else {
       console.error('Token not found');
+      setLoading(false); // Cambia el estado incluso si el token no se encuentra
     }
 
     socket.on('connect', () => {
@@ -66,33 +69,33 @@ export default function Example() {
       { name: "Desviacion estandar del Voltaje", stat: valueFormatter(std) }
     ];
     setData(datainfo);
+    setLoading(false); // Datos cargados, cambia el estado
   };
 
   return (
     <div className="dark">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {data.map((item) => (
-          <Card key={item.name}>
-            <div className="flex items-center justify-between">
-              <p className="text-tremor-default font-medium text-tremor-content dark:text-dark-tremor-content">
-                {item.name}
+        {loading ? (
+          Array.from({ length: 3 }).map((_, index) => (
+            <Card key={index} className="p-4">
+              <Skeleton variant="text" width="80%" height={30} />
+              <Skeleton variant="text" width="60%" height={40} style={{ marginTop: 16 }} />
+            </Card>
+          ))
+        ) : (
+          data.map((item) => (
+            <Card key={item.name} className="p-4">
+              <div className="flex items-center justify-between">
+                <p className="text-tremor-default font-medium text-tremor-content dark:text-dark-tremor-content">
+                  {item.name}
+                </p>
+              </div>
+              <p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
+                {item.stat}
               </p>
-              {/* <span
-                className={classNames(
-                  item.changeType === 'positive'
-                    ? 'bg-amber-100 text-amber-800 ring-emerald-600/10 dark:bg-emerald-400/10 dark:text-amber-500 dark:ring-emerald-400/20'
-                    : 'bg-red-100 text-red-800 ring-red-600/10 dark:bg-red-400/10 dark:text-purple-500 dark:ring-purple-400/20',
-                  'inline-flex items-center rounded-tremor-small px-2 py-1 text-tremor-label font-medium ring-1 ring-inset',
-                )}
-              >
-                {item.change}
-              </span> */}
-            </div>
-            <p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-              {item.stat}
-            </p>
-          </Card>
-        ))}
+            </Card>
+          ))
+        )}
       </div>
     </div>
   );

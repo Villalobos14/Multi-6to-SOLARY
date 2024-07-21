@@ -7,12 +7,12 @@ const FeatureSection = () => {
     <div className="relative mt-20 border-b border-neutral-800 min-h-[800px]" id="features">
       <div className="text-center">
         <span className="bg-white bg-opacity-10 backdrop-blur  text-white rounded-full h-6 text-sm font-medium px-2 py-1 uppercase">
-          Features
+          Caracteristicas
         </span>
         <h2 className="text-3xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking-wide">
-          Easy to monitor{" "}
+          Monitorea{" "}
           <span className="bg-gradient-to-r from-purple-400 to-[#cb0bb1] text-transparent bg-clip-text">
-            your panel
+            tu panel
           </span>
         </h2>
       </div>

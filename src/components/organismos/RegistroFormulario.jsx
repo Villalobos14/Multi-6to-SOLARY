@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import Notificacion from '../../components/organismos/Notification';
-import LoginImage from "/cover.png"
+import LoginImage from "/cover.png";
 import logo from "../../assets/LogoVenture.png";
 import TransitionWrapper from "./TransitionWrapper";
 
@@ -18,19 +18,23 @@ function QuoteSection() {
         className="absolute inset-0 object-cover w-full h-full"
       />
       {/* Contenido de la sección de citas */}
-      <div className="relative z-10 p-6 sm:px-5 mt-80">
+      <div className="relative z-10 sm:px-5 mt-80">
         <h2 className="pl-2 text-xs font-bold tracking-widest leading-3 text-white text-opacity-100">
-          A WISE QUOTE
+          SUPERVISA AL INSTANTE
         </h2>
         <h1 className="text-8xl font-medium leading-3 text-white mt-[508px] sm:mt-10 sm:text-8xl">
-          Get in to it
+          TU ENERGÍA 
         </h1>
+        <h2 className="text-6xl font-medium ml-3">
+          TU CONTROL
+        </h2>
         <p className="mt-14 ml-2.5 text-sm leading-5 text-white text-opacity-90 w-[263px] sm:mt-10">
-          You can get everything you want if you work hard, trust the process, and stick to the plan.
+          Controla el rendimiento de tus paneles en tiempo real y optimiza su eficiencia con facilidad. Tu energía está en tus manos.
         </p>
       </div>
     </section>
   );
+
 }
 
 // Componente para el formulario de registro
@@ -41,7 +45,7 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [notificaciones, setNotificaciones] = useState([]);
-  const [serialNumber,setSerialNumber]=useState('')
+  const [serialNumber, setSerialNumber] = useState('');
   const [show, setShow] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -67,20 +71,19 @@ function RegisterForm() {
     }
 
     try {
-      const response = await axios.post(process.env.API+"api/auth/signup", {
-        "name":name,
-        "email":email,
-        "password":password,
-        "codigoproducto":serialNumber
+      const response = await axios.post(process.env.API + "api/auth/signup", {
+        "name": name,
+        "email": email,
+        "password": password,
+        "codigoproducto": serialNumber
       });
-      
-      
+
       if (response.data.success) {
         navigate('/login');
         setShow(true);
         setNotificaciones(prevNotificaciones => [...prevNotificaciones, {
           title: "Registro exitoso",
-          subtitle: "Ha sido registrado exitosamente",
+          subtitle: "Te has registrado exitosamente",
           icon: true
         }]);
       }
@@ -106,31 +109,31 @@ function RegisterForm() {
             className="shrink-0 w-4 border-0 aspect-square mr-2 mt-1"
           />
         </Link>
-        <div className="font-light text-xl ">Venture</div>
+        <div className="font-light text-xl ">Solary</div>
       </header>
       {/* Sección principal del formulario */}
-      <section className="flex flex-col items-center justify-center self-stretch px-5   sm:mt-5">
-        <h2 className=" text-6xl font-medium text-center sm: sm:text-6xl bg-gradient-to-r from-white to-white text-transparent bg-clip-text">
-          Create Account
+      <section className="flex flex-col items-center justify-center self-stretch px-5 sm:mt-5">
+        <h2 className="text-6xl font-medium text-center sm:text-6xl bg-gradient-to-r from-white to-white text-transparent bg-clip-text">
+          Crear Cuenta
         </h2>
-        <p className="mt-5 font-light  text-xl text-center text-white">
+        <p className="mt-5 font-light text-xl text-center text-white">
           Regístrate para comenzar
         </p>
-        {/* Campo de entrada para el nombre */}
-        <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20 ">
-          Serial number
+        {/* Campo de entrada para el número de serie */}
+        <label htmlFor="serialNumberInput" className="self-start mt-5 text-base ml-20">
+          Número de serie
         </label>
         <input
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="text"
-          id="nameInput"
+          id="serialNumberInput"
           placeholder="122JBJVO14"
           aria-label="122JBJVO14"
           onChange={(e) => setSerialNumber(e.target.value)}
         />
         {/* Campo de entrada para el nombre */}
-        <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20 ">
-          Name
+        <label htmlFor="nameInput" className="self-start mt-5 text-base ml-20">
+          Nombre
         </label>
         <input
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
@@ -142,31 +145,31 @@ function RegisterForm() {
         />
         {/* Campo de entrada para el correo electrónico */}
         <label htmlFor="emailInput" className="self-start mt-5 text-base ml-20">
-          Email
+          Correo electrónico
         </label>
         <input
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="email"
           id="emailInput"
-          placeholder="Alejandro@mgmail.com"
-          aria-label="Alejandro@mgmail.com"
+          placeholder="Alejandro@correo.com"
+          aria-label="Alejandro@correo.com"
           onChange={(e) => setEmail(e.target.value)}
         />
         {/* Campo de entrada para la contraseña */}
         <label htmlFor="passwordInput" className="self-start mt-5 text-base ml-20">
-          Password
+          Contraseña
         </label>
         <input
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
           type="password"
           id="passwordInput"
           placeholder="*******"
-          aria-label="******"
+          aria-label="*******"
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* Campo de entrada para confirmar la contraseña */}
         <label htmlFor="confirmPasswordInput" className="self-start mt-5 text-base ml-20">
-          Confirm Password
+          Confirmar Contraseña
         </label>
         <input
           className="mt-1 px-3 py-2 rounded-md bg-slate-100 text-base border-none text-white w-3/4 bg-opacity-15"
@@ -181,7 +184,7 @@ function RegisterForm() {
           className="mt-6 px-3 py-2 rounded-md bg-white text-black text-base w-3/4"
           type="submit"
         >
-          Sign Up
+          Registrarse
         </button>
         {/* Enlace de inicio de sesión */}
         <div className="flex mt-5">

@@ -2,23 +2,30 @@ import React, { useEffect, useState } from 'react';
 import Navigation from "../../components/organismos/Navigation";
 import NavigationLink from "./NavigationLink";
 import { Card } from '@tremor/react';
-import {
-  UsersIcon,
-} from "@heroicons/react/24/outline";
+import { Skeleton } from '@mui/material';
 import { io } from 'socket.io-client';
 import axios from 'axios';
 import { Badge } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import UserModal from "../../components/organismos/UserModal"; 
+import UserModal from "../../components/organismos/UserModal";
 
 const socket = io(process.env.SOCKET_URL, {
   transports: ['websocket', 'polling', 'flashsocket']
 });
 
+const imageUrls = [
+  "panel.png",
+  "panel.png",
+  "panel.png",
+  "panel.png",
+  
+];
+
 const App = () => {
   const [data, setData] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -45,6 +52,7 @@ const App = () => {
       ];
       
       setData(alldata);
+      setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -81,7 +89,6 @@ const App = () => {
     <main className="w-full h-screen flex flex-row relative">
       <Navigation />
       <section className="flex flex-col p-6 ml-20 w-full gap-4">
-        {/* Barra superior fija */}
         <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
           <h1 className="text-4xl ml-4 text-neutral-200 bg-clip-text text-transparent bg-white">
             Reporte
@@ -94,23 +101,35 @@ const App = () => {
         </div>
         <div className='flex w-full h-full border border-[#4e4d4d] rounded-xl px-5 mb-3 bg-[#15111d]'>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full p-6">
-            {data.map((item) => (
-              <Card key={item.name} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl p-2">
-                <img src="panel.png" alt="Random" className="w-full h-32 object-cover rounded-xl mb-4" />
-                <div className="flex flex-col items-start justify-between space-y-2">
-                  <h2 className="text-xl font-bold text-white">
-                    {item.name}
-                  </h2>
-                  <div className="text-lg font-semibold text-gray-200">
-                    <p>Probabilidad de Falla: {item.data.porcentaje}%</p>
+            {loading ? (
+              Array.from({ length: 4 }).map((_, index) => (
+                <Card key={index} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl p-2">
+                  <Skeleton variant="rectangular" width="100%" height={120} />
+                  <div className="p-4">
+                    <Skeleton variant="text" width="80%" height={30} />
+                    <Skeleton variant="text" width="60%" height={40} style={{ marginTop: 16 }} />
                   </div>
-                  <div className="text-base font-medium text-gray-300">
-                    <p>Media: {item.data.mean}</p>
-                    <p>Desviación Estándar: {item.data.std_dev}</p>
+                </Card>
+              ))
+            ) : (
+              data.map((item, index) => (
+                <Card key={item.name} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl p-2">
+                  <img src={imageUrls[index % imageUrls.length]} alt={item.name} className="w-full h-32 object-cover rounded-xl mb-4" />
+                  <div className="flex flex-col items-start justify-between space-y-2">
+                    <h2 className="text-xl font-bold text-white">
+                      {item.name}
+                    </h2>
+                    <div className="text-lg font-semibold text-gray-200">
+                      <p>Probabilidad de Falla: {item.data.porcentaje}%</p>
+                    </div>
+                    <div className="text-base font-medium text-gray-300">
+                      <p>Media: {item.data.mean}</p>
+                      <p>Desviación Estándar: {item.data.std_dev}</p>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              ))
+            )}
           </div>
         </div>
       </section>

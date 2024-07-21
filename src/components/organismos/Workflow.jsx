@@ -8,9 +8,9 @@ const Workflow = () => {
   return (
     <div className="mt-20">
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center mt-6 tracking-wide mb-4 pt-20" id="workflow">
-      Scalable {" "}
+      Funcionamiento {" "}
         <span className="bg-gradient-to-r from-purple-500 to-[#d70be6] text-transparent bg-clip-text">
-        Architecture
+        Escalable
         </span>
       </h2>
       <div className="flex flex-wrap justify-center">
