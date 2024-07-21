@@ -75,7 +75,7 @@ const LineChartExample = () => {
   return (
     <Card className="bg-transparent">
       <Title className="text-lg text-white-content-strong dark:text-dark-tremor-content-strong font-semibold">
-        Sensor Data Over Time
+        MEDIA MENSUAL POR SENSOR
       </Title>
       {loading ? (
         <Box
@@ -84,7 +84,7 @@ const LineChartExample = () => {
           alignItems="center"
           height={300}
         >
-          <CircularProgress size={100} color="inherit" />
+          <CircularProgress size={50} color="inherit" />
         </Box>
       ) : (
         <LineChart

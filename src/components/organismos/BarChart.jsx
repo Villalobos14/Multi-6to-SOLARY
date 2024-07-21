@@ -17,7 +17,7 @@ function valueFormatter(number) {
 export default function Example(props) {
   const [showComparison, setShowComparison] = useState(false);
   const [data, setData] = useState([]);
-  const [nameSensor, setNameSensor] = useState('');
+  const [nameSensor, setNameSensor] = useState('Luminosidad');
   const [loading, setLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function Example(props) {
       }));
 
       setData(formattedData);
-      setNameSensor(nameSensor);
+
       setLoading(false); // Datos cargados, cambia el estado
     } catch (e) {
       console.error('API call failed:', e.response ? e.response.data : e.message);
@@ -79,8 +79,8 @@ export default function Example(props) {
 
   return (
     <div className="bg-transparent text-gray-100 sm:mx-auto sm:max-w-2xl">
-      <h3 className="mr-1 font-semibold text-gray-100">{nameSensor}</h3>
-      <p className="text-gray-100">Data overview for the selected sensor.</p>
+      <h3 className="mr-1 font-semibold text-2xl text-gray-100">{nameSensor}</h3>
+      <p className="text-gray-100">Visión general de datos para el sensor seleccionado.</p>
       {loading ? (
         <Box
           display="flex"
@@ -114,11 +114,10 @@ export default function Example(props) {
         </>
       )}
       <Divider />
-      <div className="mb-2 flex items-center space-x-3">
-        <Switch id="comparison" onChange={() => setShowComparison(!showComparison)} />
-        <label htmlFor="comparison" className="text-white">
-          Show comparison
-        </label>
+      <div className="flex flex-col items-start space-y-1 border px-4 py-1 rounded-lg bg-gray-800">
+        <h4 className="text-lg font-semibold text-gray-300">NOMENCLATURA GRAFICA DE BARRAS</h4>
+        <p className="text-gray-400">EJE X: LUMINOSIDAD - LUXES</p>
+        <p className="text-gray-400">EJE Y: FRECUENCIA</p>
       </div>
     </div>
   );

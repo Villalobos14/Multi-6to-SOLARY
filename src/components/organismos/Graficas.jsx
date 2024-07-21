@@ -5,6 +5,9 @@ import { UsersIcon } from "@heroicons/react/24/outline";
 import LineChartExample from '../../components/organismos/CardStats';
 import io from 'socket.io-client';
 import axios from 'axios';
+import { Badge } from '@mui/material';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import UserModal from "../../components/organismos/UserModal";
 
 const socket = io(process.env.SOCKET_URL, {
   transports: ['websocket', 'polling', 'flashsocket']
@@ -16,6 +19,17 @@ function valueFormatter(number) {
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
+
+  const handleUserIconClick = () => {
+    setNotificationCount(0);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
 
   useEffect(() => {
     const storedToken = sessionStorage.getItem('token');
@@ -35,9 +49,15 @@ const App = () => {
       handleupdate(median, mode, mean, std);
     });
 
+    socket.on("anomalies", (message) => {
+      setNotificationCount(prev => prev + 1);
+      console.log(JSON.parse(message));
+    });
+
     return () => {
       socket.off('connect');
       socket.off("meditions");
+      socket.off("anomalies");
     };
   }, []);
 
@@ -74,9 +94,13 @@ const App = () => {
           <h1 className="text-4xl ml-4 text-neutral-200 bg-clip-text text-transparent bg-white">
             Graficas
           </h1>
-          <NavigationLink to="/" name="users">
-            <UsersIcon className="stroke-inherit stroke-[0.75] min-w-8 w-8" />
-          </NavigationLink>
+          <div className="flex items-center">
+            <button onClick={handleUserIconClick} className="text-white pr-3">
+              <Badge color="secondary" badgeContent={notificationCount}>
+                <NotificationsIcon />
+              </Badge>
+            </button>
+          </div>
         </div>
 
         {/* Nuevo div padre con dos divs hijos */}
@@ -116,6 +140,7 @@ const App = () => {
           </div>
         </div>
       </section>
+      <UserModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </main>
   );
 }

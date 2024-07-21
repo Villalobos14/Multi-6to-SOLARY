@@ -18,7 +18,6 @@ const imageUrls = [
   "panel.png",
   "panel.png",
   "panel.png",
-  
 ];
 
 const App = () => {
@@ -91,7 +90,7 @@ const App = () => {
       <section className="flex flex-col p-6 ml-20 w-full gap-4">
         <div className="flex items-center justify-between rounded-xl border border-[#4e4d4d] bg-[#15111d] p-3">
           <h1 className="text-4xl ml-4 text-neutral-200 bg-clip-text text-transparent bg-white">
-            Reporte
+            PROBABILIDADES
           </h1>
           <button onClick={handleUserIconClick} className="text-white pr-3">
             <Badge color="secondary" badgeContent={notificationCount}>
@@ -100,7 +99,7 @@ const App = () => {
           </button>
         </div>
         <div className='flex w-full h-full border border-[#4e4d4d] rounded-xl px-5 mb-3 bg-[#15111d]'>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-2 w-full p-4">
             {loading ? (
               Array.from({ length: 4 }).map((_, index) => (
                 <Card key={index} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl p-2">

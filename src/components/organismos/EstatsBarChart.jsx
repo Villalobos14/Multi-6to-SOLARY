@@ -12,7 +12,7 @@ function valueFormatter(number) {
 export default function Example(props) {
   const [showComparison, setShowComparison] = useState(false);
   const [data, setData] = useState([]);
-  const [nameSensor, setNameSensor] = useState('');
+  const [nameSensor, setNameSensor] = useState('VOLTAJE');
   const [loading, setLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function Example(props) {
   return (
     <div className="bg-transparent text-gray-100 sm:mx-auto sm:max-w-2xl">
       <h3 className="mr-1 font-semibold text-gray-100">{nameSensor}</h3>
-      <p className="text-gray-100">Data overview for the selected sensor.</p>
+      <p className="text-gray-100">DATOS GENERALES SOBRE EL SENSOR</p>
       {loading ? (
         <Box
           display="flex"
@@ -96,7 +96,7 @@ export default function Example(props) {
         </>
       )}
       <Divider />
-      <div className="mb-2 flex items-center space-x-3">
+      <div className=" flex items-center space-x-3">
         <h1>medidas</h1>
         
       </div>

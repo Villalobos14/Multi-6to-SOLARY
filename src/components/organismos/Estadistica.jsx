@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useEffect, useState } from 'react';
 import Navigation from "../../components/organismos/Navigation";
 import BarChart from "../../components/organismos/BarChart";
@@ -28,9 +27,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    socket.on('connect', () => {
-
-    });
+    socket.on('connect', () => { });
 
     socket.on("anomalies", (message) => {
       setData(prevData => prevData + 1);
@@ -61,46 +58,34 @@ const App = () => {
 
         <div className="flex flex-1 gap-5 border border-[#4e4d4d] rounded-xl p-5 bg-[#15111d] mb-3">
 
-          <div className="flex flex-col w-1/2 h-full">
-            <div className="border h-full rounded-xl p-3 bg-[#1e1b2a] flex flex-col items-center">
+          <div className="flex flex-col w-1/2 h-full ">
+            <div className="border h-full rounded-xl px-5 py-4 bg-[#1e1b2a] flex flex-col items-center">
               <span className="text-white text-2xl font-semibold mb-2">TU PANEL SOLAR</span>
-              <img src="panel.png" alt="Random" className="w-1/2 rounded-xl mb-2" />
+              <img src="panel.png" alt="Panel Solar" className="w-1/2 rounded-xl mb-2" />
               <div className="flex flex-col gap-2 w-full">
-                <div className='p-2 bg-[#29562c] border rounded-lg'>
-                  <h2 className="text-xl font-semibold ">Metricas</h2>
-                  <p>Sobre el funcionamiento de la corriente</p>
+                <div className='py-4 bg-gray-800  rounded-lg mt-5 px-6'>
+                  <h2 className="text-xl font-semibold text-white">Cuidado y Funcionamiento</h2>
+                  <p className="text-gray-300">Para asegurar un rendimiento óptimo del panel solar, mantenlo limpio y libre de obstrucciones. Verifica periódicamente las conexiones y el estado general del sistema.</p>
                 </div>
-                <div className='p-2 bg-[#117219] border rounded-md'>
-                  <h2 className="text-xl font-semibold">Mediana</h2>
-                  <p></p>
-                </div>
-                
+
               </div>
             </div>
           </div>
-
 
           <div className="flex flex-col w-1/2 h-full mt-6">
             <div className="flex-1 rounded-xl">
               <EstatsBarChart />
             </div>
-            <div className='bg-gray-800 p-8 rounded-lg mb-6 flex flex-col items-center text-center'>
-                  <div className='justify-center  font-semibold'>
-                    <p>
-                      Valores de los ejes
-                    </p>
-                  </div>
-                  <div>
-
-                    <p className='ml-20'>
-                      X - Valores de x cosa ------    Y - Valores de y cosa
-                    </p>
-
-                  </div>
-                </div>
+            <div className='bg-gray-800 p-4 rounded-lg mb-6 flex flex-col items-center text-center'>
+              <div className='justify-center font-semibold text-white'>
+                <p className="text-xl">Valores de los Ejes</p>
+              </div>
+              <div className="text-gray-300 ">
+                <p className="mt-4">Estos valores te permiten analizar el comportamiento de la luminosidad en relación con el tiempo y la frecuencia de las mediciones.</p>
+              </div>
+            </div>
           </div>
         </div>
-
       </section>
       <UserModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </main>

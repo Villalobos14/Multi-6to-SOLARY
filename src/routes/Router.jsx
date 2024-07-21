@@ -8,26 +8,22 @@ import Dashboard from '../pages/dashboard/Dashboard';
 import Graficas from '../components/organismos/Graficas';
 import Estadistica from '../components/organismos/Estadistica';
 import TransitionWrapper from '../components/organismos/TransitionWrapper';
-import Reporte from '../components/organismos/Reporte'
-
+import Reporte from '../components/organismos/Reporte';
+import PrivateRoute from '../components/organismos/PrivateRoute';
 
 const AppRouter = () => {
   return (
-    
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing/>}/>
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<TransitionWrapper><Login /></TransitionWrapper>} />
         <Route path="/register" element={<TransitionWrapper><Register /></TransitionWrapper>} />
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/graficas" element={<Graficas/>}/>
-        <Route path="/estadistica" element={<Estadistica/>}/>
-        <Route path="/reporte" element={<Reporte/>}/>
-
-        
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/graficas" element={<PrivateRoute><Graficas /></PrivateRoute>} />
+        <Route path="/estadistica" element={<PrivateRoute><Estadistica /></PrivateRoute>} />
+        <Route path="/reporte" element={<PrivateRoute><Reporte /></PrivateRoute>} />
       </Routes>
     </BrowserRouter>
-  
   );
 };
 
