@@ -102,7 +102,7 @@ const App = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-2 w-full p-4">
             {loading ? (
               Array.from({ length: 4 }).map((_, index) => (
-                <Card key={index} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl p-2">
+                <Card key={index} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl ">
                   <Skeleton variant="rectangular" width="100%" height={120} />
                   <div className="p-4">
                     <Skeleton variant="text" width="80%" height={30} />
@@ -112,8 +112,8 @@ const App = () => {
               ))
             ) : (
               data.map((item, index) => (
-                <Card key={item.name} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl p-2">
-                  <img src={imageUrls[index % imageUrls.length]} alt={item.name} className="w-full h-32 object-cover rounded-xl mb-4" />
+                <Card key={item.name} className="w-full bg-opacity-5 backdrop-blur-lg rounded-xl px-5 py-2">
+                  <img src={imageUrls[index % imageUrls.length]} alt={item.name} className="w-full h-32 object-cover rounded-xl mb-6" />
                   <div className="flex flex-col items-start justify-between space-y-2">
                     <h2 className="text-xl font-bold text-white">
                       {item.name}

@@ -105,11 +105,11 @@ const App = () => {
         </div>
 
         {/* Nuevo div padre con dos divs hijos */}
-        <div className="flex w-full h-full border border-[#4e4d4d] rounded-xl px-5 pb-8 mb-3 bg-[#15111d]">
+        <div className="flex w-full h-full border border-[#4e4d4d] rounded-xl px-1 py-2 mb-3 bg-[#15111d]">
           {/* Div izquierdo para texto */}
-          <div className="w-3/6 p-4 flex flex-col ml-10 mt-6 bg-[#1f1b24] border rounded-lg">
-            <div className='p-4 bg-[#292431] mb-4 rounded flex items-center justify-between'>
-              <div>
+          <div className="w-2/6 p-4 flex flex-col ml-10 mt-5  mb-4   border  rounded-lg">
+            <div className='p-7 bg-[#292431] mb-4 rounded flex items-center justify-between'>
+              <div className=''>
                 <h2 className="text-2xl font-bold text-white mb-2">Métricas</h2>
                 <p className="text-gray-400">Análisis de las métricas de corriente para una visión clara del rendimiento.</p>
               </div>
@@ -146,13 +146,21 @@ const App = () => {
           </div>
 
           {/* Div derecho para CardStats */}
-          <div className="w-4/6 p-4 flex flex-col justify-center items-center gap-4">
+          <div className="w-4/6 p-4 flex flex-col justify-center items-center gap-4 mt-2">
             <div className="w-4/5">
               <LineChartExample className="h-full p-4" />
             </div>
-            <div className="w-4/5 h-full px-5 flex flex-col py-4 border rounded bg-[#1f1b24]">
-              <p className="text-white text-lg font-semibold">Visualiza las métricas de corriente y analiza su comportamiento en tiempo real.</p>
+            <div className="w-4/5 h-full px-5 flex flex-col justify-center items-center py-4 border rounded-lg bg-[#1f1b24]">
+              <p className="text-white text-lg font-semibold text-center mb-2">
+                Nomenclatura <br />
+                EJE X - FECHA / EJE Y - MEDIA
+              </p>
+              <p className="text-gray-400 text-sm text-center">
+                Esta gráfica muestra la media mensual por sensor, proporcionando una visión detallada de las tendencias a lo largo del tiempo.
+              </p>
             </div>
+
+
           </div>
         </div>
       </section>
