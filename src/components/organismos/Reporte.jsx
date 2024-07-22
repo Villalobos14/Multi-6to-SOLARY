@@ -14,10 +14,10 @@ const socket = io(process.env.SOCKET_URL, {
 });
 
 const imageUrls = [
-  "nubes.avif",
-  "atardecer.avif",
   "circuitos.avif",
   "temperatura.avif",
+  "atardecer.avif",
+  "rayo.avif",
 ];
 
 const App = () => {
