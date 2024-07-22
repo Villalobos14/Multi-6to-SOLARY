@@ -76,12 +76,16 @@ const App = () => {
       setNotificationCount(prevCount => prevCount + 1);
     });
     fetchData();
-    const interval = setInterval(() => fetchData(), 300000);
+    const intervalId = setInterval(async () => {
+      
+        fetchData()
+      
+    }, 300000); 
 
     return () => {
       socket.off('connect');
       socket.off("probabilitysensor");
-      clearInterval(interval);
+      clearInterval(intervalId);
     };
   }, []);
 
