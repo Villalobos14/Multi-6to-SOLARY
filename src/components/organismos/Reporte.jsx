@@ -42,6 +42,7 @@ const App = () => {
           headers: { 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem('token') }
         })
       ]);
+      console.log(responses[0].data.data);
 
       const alldata = [
         { name: "Voltaje", data: responses[0].data.data },
@@ -119,7 +120,8 @@ const App = () => {
                       {item.name}
                     </h2>
                     <div className="text-lg font-semibold text-gray-200">
-                      <p>Probabilidad de Falla: {item.data.porcentaje}%</p>
+                      <p>Probabilidad de Falla: {item.data.porcentaje_out_of_range
+                      }%</p>
                     </div>
                     <div className="text-base font-medium text-gray-300">
                       <p>Media: {item.data.mean}</p>
